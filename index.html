@@ -354,10 +354,10 @@
     <header>
       <div>
         <h1>RNGdle Calculator</h1>
-        <p class="subtitle">输入 0 到 999,999 的 roll，按官方前端 bundle 中的 203 条 badge 规则计算命中、计分 badge、EP 和 card rarity。</p>
-        <p class="subtitle"><a href="stats.html">查看全量枚举统计可视化</a></p>
+        <p class="subtitle">Enter a roll from 0 to 999,999 and calculate matching badges, scoring badges, EP, and card rarity using the official 203-badge frontend rule bundle.</p>
+        <p class="subtitle"><a href="stats.html">View full enumeration stats</a></p>
       </div>
-      <p class="source">RNGdle 每日一次 roll；本工具按有效 roll 范围 0-999,999 计算。badge 基于数字属性，稀有度按概率分档，card rarity 按总 EP 排名分档。来源：<a href="https://www.rngdle.com/about" target="_blank" rel="noreferrer">rngdle.com/about</a></p>
+      <p class="source">RNGdle gives one daily roll. This tool calculates the valid roll range, 0-999,999. Badges are based on numeric properties, badge rarity is probability-based, and card rarity is ranked by total EP. Source: <a href="https://www.rngdle.com/about" target="_blank" rel="noreferrer">rngdle.com/about</a></p>
     </header>
 
     <div class="layout">
@@ -365,12 +365,12 @@
         <label for="roll">Roll number</label>
         <div class="number-row">
           <input id="roll" inputmode="numeric" autocomplete="off" value="1337" aria-label="Roll number">
-          <button id="random" title="随机生成">↻</button>
+          <button id="random" title="Random roll">↻</button>
         </div>
         <div class="actions">
-          <button id="calc">计算</button>
-          <button id="best">试试强数</button>
-          <button id="copyShare">复制分享</button>
+          <button id="calc">Calculate</button>
+          <button id="best">Try a Hit</button>
+          <button id="copyShare">Copy Share</button>
         </div>
         <div id="copyStatus" class="copy-status" aria-live="polite"></div>
         <div class="stats">
@@ -380,7 +380,7 @@
           <div class="stat"><span>Unique Digits</span><strong id="uniqueDigits">0</strong></div>
         </div>
         <div id="digits" class="digits" aria-label="Digits"></div>
-        <footer>计算逻辑来自本地固定的 RNGdle 官方前端 chunk。带 “scoring” 标记的 badge 会计入总 EP；同 family 只取最高 EP badge。</footer>
+        <footer>Calculation logic comes from the pinned official RNGdle frontend chunk. Badges marked “scoring” count toward total EP; within the same family, only the highest-EP badge scores.</footer>
       </aside>
 
       <section>
@@ -804,9 +804,9 @@
           document.execCommand("copy");
           textarea.remove();
         }
-        $("copyStatus").textContent = "分享文本已复制。";
+        $("copyStatus").textContent = "Share text copied.";
       } catch (error) {
-        $("copyStatus").textContent = "复制失败，已在控制台输出分享文本。";
+        $("copyStatus").textContent = "Copy failed. Share text was printed to the console.";
         console.log(text);
       }
     }
@@ -815,11 +815,11 @@
       const hitIds = new Set(hits.map((hit) => hit.id));
       const suggestions = [];
       const s = String(n);
-      if (!hitIds.has("PALINDROME") && s.length > 1) suggestions.push({ label: "Palindrome", emoji: "🪞", description: `试试 ${s + [...s].reverse().join("")} 或把末位改成首位。` });
-      if (!hitIds.has("PRIME")) suggestions.push({ label: "Prime", emoji: "🔹", description: "相邻数字里常能找到质数；避开偶数和 5 结尾。"});
-      if (!hitIds.has("JACKPOT")) suggestions.push({ label: "Blackjack", emoji: "🃏", description: `当前 digit sum 是 ${sumDigits(n)}，目标 21。`});
-      if (!hitIds.has("LEET")) suggestions.push({ label: "Leet", emoji: "💻", description: "含 1337 的数字通常能叠加梗数和模式类 badge。"});
-      if (!hitIds.has("CONTIGUOUS_TRIPS")) suggestions.push({ label: "Trips Run", emoji: "🔁", description: "连续三个相同数字可触发 contiguous trips。"});
+      if (!hitIds.has("PALINDROME") && s.length > 1) suggestions.push({ label: "Palindrome", emoji: "🪞", description: `Try ${s + [...s].reverse().join("")}, or change the last digit to match the first.` });
+      if (!hitIds.has("PRIME")) suggestions.push({ label: "Prime", emoji: "🔹", description: "Nearby values often include primes; avoid even numbers and numbers ending in 5."});
+      if (!hitIds.has("JACKPOT")) suggestions.push({ label: "Blackjack", emoji: "🃏", description: `Current digit sum is ${sumDigits(n)}; the target is 21.`});
+      if (!hitIds.has("LEET")) suggestions.push({ label: "Leet", emoji: "💻", description: "Numbers containing 1337 can stack meme and pattern badges."});
+      if (!hitIds.has("CONTIGUOUS_TRIPS")) suggestions.push({ label: "Trips Run", emoji: "🔁", description: "Three identical consecutive digits trigger contiguous trips."});
       return suggestions.slice(0, 4);
     }
 
@@ -839,7 +839,7 @@
       $("digits").innerHTML = result.digits.map((digit) => `<div class="digit">${digit}</div>`).join("");
       $("badges").innerHTML = result.hits.length
         ? result.hits.map(renderBadge).join("")
-        : `<div class="empty">没有命中当前规则集中的 badge。</div>`;
+        : `<div class="empty">No badges matched in the current rule set.</div>`;
       $("nearMisses").innerHTML = nearMisses(result.n, result.hits).map((item) => `
         <article class="badge">
           <div class="badge-title"><span class="emoji">${item.emoji}</span><span>${item.label}</span></div>

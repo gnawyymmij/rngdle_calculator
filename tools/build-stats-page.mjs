@@ -311,7 +311,7 @@ const html = `<!doctype html>
     <header>
       <div>
         <h1>RNGdle Stats</h1>
-        <p class="subtitle">基于官方规则枚举 0 到 999,999 全部有效 roll。所有图表来自本地 <code>enumeration_stats.json</code>，无需联网。</p>
+        <p class="subtitle">Full enumeration of every valid roll from 0 to 999,999 using the official rules. All charts are generated from the local <code>enumeration_stats.json</code>; no network access is required.</p>
       </div>
       <nav class="nav">
         <a href="index.html">Calculator</a>
