@@ -1,0 +1,741 @@
+{
+  "range": {
+    "min": 0,
+    "max": 999999,
+    "total": 1000000
+  },
+  "score": {
+    "min": 1759,
+    "max": 162575449,
+    "mean": 19064.982075,
+    "standardDeviation": 642921.523261,
+    "zeroScoreCount": 0,
+    "uniqueScoreCount": 53818,
+    "percentiles": {
+      "p1": 2049,
+      "p5": 2350,
+      "p10": 2844,
+      "p25": 3769,
+      "p50": 5348,
+      "p75": 8641,
+      "p90": 20244,
+      "p95": 33970,
+      "p99": 150664,
+      "p999": 994874,
+      "p9999": 11446745
+    }
+  },
+  "cardRarityCounts": {
+    "trash": 10009,
+    "common": 490062,
+    "uncommon": 249941,
+    "rare": 149997,
+    "epic": 49994,
+    "anomaly": 39998,
+    "mythic": 9999
+  },
+  "cardRarityPercents": {
+    "trash": 1.0009,
+    "common": 49.0062,
+    "uncommon": 24.9941,
+    "rare": 14.9997,
+    "epic": 4.9994,
+    "anomaly": 3.9998,
+    "mythic": 0.9999
+  },
+  "badgeCounts": {
+    "min": 8,
+    "max": 33,
+    "histogram": {
+      "8": 1403,
+      "9": 13677,
+      "10": 59955,
+      "11": 143935,
+      "12": 215935,
+      "13": 220313,
+      "14": 162686,
+      "15": 96135,
+      "16": 48030,
+      "17": 20999,
+      "18": 9000,
+      "19": 4032,
+      "20": 1931,
+      "21": 984,
+      "22": 464,
+      "23": 243,
+      "24": 140,
+      "25": 67,
+      "26": 31,
+      "27": 21,
+      "28": 10,
+      "29": 5,
+      "30": 1,
+      "31": 2,
+      "33": 1
+    }
+  },
+  "scoringBadgeCounts": {
+    "min": 6,
+    "max": 23,
+    "histogram": {
+      "6": 19,
+      "7": 1662,
+      "8": 14780,
+      "9": 56890,
+      "10": 126770,
+      "11": 189111,
+      "12": 209259,
+      "13": 178550,
+      "14": 118164,
+      "15": 62169,
+      "16": 27072,
+      "17": 10169,
+      "18": 3628,
+      "19": 1213,
+      "20": 386,
+      "21": 117,
+      "22": 31,
+      "23": 10
+    }
+  },
+  "topNumbers": [
+    {
+      "number": 1,
+      "score": 162575449,
+      "badgeCount": 30,
+      "scoringBadgeCount": 17
+    },
+    {
+      "number": 0,
+      "score": 139927162,
+      "badgeCount": 29,
+      "scoringBadgeCount": 16
+    },
+    {
+      "number": 2,
+      "score": 119610065,
+      "badgeCount": 16,
+      "scoringBadgeCount": 15
+    },
+    {
+      "number": 777777,
+      "score": 113270343,
+      "badgeCount": 31,
+      "scoringBadgeCount": 20
+    },
+    {
+      "number": 6,
+      "score": 112329512,
+      "badgeCount": 15,
+      "scoringBadgeCount": 14
+    },
+    {
+      "number": 3,
+      "score": 112146596,
+      "badgeCount": 16,
+      "scoringBadgeCount": 15
+    },
+    {
+      "number": 8,
+      "score": 110919931,
+      "badgeCount": 16,
+      "scoringBadgeCount": 15
+    },
+    {
+      "number": 9,
+      "score": 108910605,
+      "badgeCount": 15,
+      "scoringBadgeCount": 14
+    },
+    {
+      "number": 4,
+      "score": 106195161,
+      "badgeCount": 14,
+      "scoringBadgeCount": 13
+    },
+    {
+      "number": 67,
+      "score": 104946998,
+      "badgeCount": 22,
+      "scoringBadgeCount": 19
+    },
+    {
+      "number": 5,
+      "score": 104429587,
+      "badgeCount": 15,
+      "scoringBadgeCount": 14
+    },
+    {
+      "number": 666,
+      "score": 103284081,
+      "badgeCount": 19,
+      "scoringBadgeCount": 15
+    },
+    {
+      "number": 777,
+      "score": 103263101,
+      "badgeCount": 21,
+      "scoringBadgeCount": 17
+    },
+    {
+      "number": 101,
+      "score": 102583380,
+      "badgeCount": 23,
+      "scoringBadgeCount": 20
+    },
+    {
+      "number": 69,
+      "score": 102135744,
+      "badgeCount": 16,
+      "scoringBadgeCount": 15
+    },
+    {
+      "number": 42,
+      "score": 101614638,
+      "badgeCount": 18,
+      "scoringBadgeCount": 17
+    },
+    {
+      "number": 86,
+      "score": 101511610,
+      "badgeCount": 15,
+      "scoringBadgeCount": 14
+    },
+    {
+      "number": 420,
+      "score": 101211746,
+      "badgeCount": 22,
+      "scoringBadgeCount": 19
+    },
+    {
+      "number": 7,
+      "score": 101096163,
+      "badgeCount": 15,
+      "scoringBadgeCount": 14
+    },
+    {
+      "number": 696969,
+      "score": 100918989,
+      "badgeCount": 23,
+      "scoringBadgeCount": 20
+    },
+    {
+      "number": 424242,
+      "score": 100396364,
+      "badgeCount": 22,
+      "scoringBadgeCount": 20
+    },
+    {
+      "number": 676767,
+      "score": 100394013,
+      "badgeCount": 26,
+      "scoringBadgeCount": 22
+    },
+    {
+      "number": 1337,
+      "score": 100157256,
+      "badgeCount": 16,
+      "scoringBadgeCount": 13
+    },
+    {
+      "number": 911,
+      "score": 100142870,
+      "badgeCount": 14,
+      "scoringBadgeCount": 12
+    },
+    {
+      "number": 911911,
+      "score": 100142402,
+      "badgeCount": 18,
+      "scoringBadgeCount": 16
+    }
+  ],
+  "mostCommonBadges": [
+    {
+      "id": "SIX_DIGITS",
+      "label": "Six Digits",
+      "count": 900000,
+      "percent": 90
+    },
+    {
+      "id": "PAIR",
+      "label": "Pair",
+      "count": 831429,
+      "percent": 83.1429
+    },
+    {
+      "id": "NEIGHBORS",
+      "label": "Neighbors",
+      "count": 620688,
+      "percent": 62.0688
+    },
+    {
+      "id": "VOID",
+      "label": "Void",
+      "count": 597870,
+      "percent": 59.787
+    },
+    {
+      "id": "EVEN",
+      "label": "Even",
+      "count": 500000,
+      "percent": 50
+    },
+    {
+      "id": "ODD",
+      "label": "Odd",
+      "count": 500000,
+      "percent": 50
+    },
+    {
+      "id": "LIFTOFF",
+      "label": "Liftoff",
+      "count": 499995,
+      "percent": 49.9995
+    },
+    {
+      "id": "LUCKY_7",
+      "label": "Lucky Seven",
+      "count": 468559,
+      "percent": 46.8559
+    },
+    {
+      "id": "CONTIGUOUS_PAIR",
+      "label": "Contiguous Pair",
+      "count": 402129,
+      "percent": 40.2129
+    },
+    {
+      "id": "GROUNDED",
+      "label": "Grounded",
+      "count": 399996,
+      "percent": 39.9996
+    },
+    {
+      "id": "BERYLLIUM",
+      "label": "Beryllium (4)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "BORON",
+      "label": "Boron (5)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "CARBON",
+      "label": "Carbon (6)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "FLUORINE",
+      "label": "Fluorine (9)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "HELIUM",
+      "label": "Helium (2)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "HYDROGEN",
+      "label": "Hydrogen (1)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "LITHIUM",
+      "label": "Lithium (3)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "NITROGEN",
+      "label": "Nitrogen (7)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "OXYGEN",
+      "label": "Oxygen (8)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "QUARTET",
+      "label": "Quartet",
+      "count": 344736,
+      "percent": 34.4736
+    }
+  ],
+  "rarestBadges": [
+    {
+      "id": "BIG_BROTHER_EXACT",
+      "label": "Orwellian",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "BOTANIST_EXACT",
+      "label": "Exact Botanist",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "BRAINROT",
+      "label": "Brainrot",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "CALENDAR_EXACT",
+      "label": "Exact Calendar",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DEVIL_EXACT",
+      "label": "Exact Devil",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_EIGHT",
+      "label": "Eight",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_FIVE",
+      "label": "Five",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_FOUR",
+      "label": "Four",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_NINE",
+      "label": "Nine",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_ONE",
+      "label": "One",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_SEVEN",
+      "label": "Seven",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_SIX",
+      "label": "Six",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_THREE",
+      "label": "Three",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_TWO",
+      "label": "Two",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_ZERO",
+      "label": "Zero",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "EIGHTY_SIX_EXACT",
+      "label": "Exact Eighty-Six",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "EMERGENCY_EXACT",
+      "label": "Exact Emergency",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "EXACT_BOOB_80085",
+      "label": "Exact 80085",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "EXACT_HELL",
+      "label": "Exact Hell",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "GROUNDHOG_DAY",
+      "label": "Groundhog Day",
+      "count": 1,
+      "percent": 0.0001
+    }
+  ],
+  "mostCommonScoringBadges": [
+    {
+      "id": "SIX_DIGITS",
+      "label": "Six Digits",
+      "count": 900000,
+      "percent": 90
+    },
+    {
+      "id": "NEIGHBORS",
+      "label": "Neighbors",
+      "count": 620688,
+      "percent": 62.0688
+    },
+    {
+      "id": "VOID",
+      "label": "Void",
+      "count": 597870,
+      "percent": 59.787
+    },
+    {
+      "id": "EVEN",
+      "label": "Even",
+      "count": 500000,
+      "percent": 50
+    },
+    {
+      "id": "ODD",
+      "label": "Odd",
+      "count": 500000,
+      "percent": 50
+    },
+    {
+      "id": "LIFTOFF",
+      "label": "Liftoff",
+      "count": 499995,
+      "percent": 49.9995
+    },
+    {
+      "id": "LUCKY_7",
+      "label": "Lucky Seven",
+      "count": 468559,
+      "percent": 46.8559
+    },
+    {
+      "id": "GROUNDED",
+      "label": "Grounded",
+      "count": 399996,
+      "percent": 39.9996
+    },
+    {
+      "id": "BERYLLIUM",
+      "label": "Beryllium (4)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "BORON",
+      "label": "Boron (5)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "CARBON",
+      "label": "Carbon (6)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "FLUORINE",
+      "label": "Fluorine (9)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "HELIUM",
+      "label": "Helium (2)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "HYDROGEN",
+      "label": "Hydrogen (1)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "LITHIUM",
+      "label": "Lithium (3)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "NITROGEN",
+      "label": "Nitrogen (7)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "OXYGEN",
+      "label": "Oxygen (8)",
+      "count": 354294,
+      "percent": 35.4294
+    },
+    {
+      "id": "QUARTET",
+      "label": "Quartet",
+      "count": 344736,
+      "percent": 34.4736
+    },
+    {
+      "id": "PAIR",
+      "label": "Pair",
+      "count": 326835,
+      "percent": 32.6835
+    },
+    {
+      "id": "GHOST",
+      "label": "Ghost",
+      "count": 323848,
+      "percent": 32.3848
+    }
+  ],
+  "rarestScoringBadges": [
+    {
+      "id": "BIG_BROTHER_EXACT",
+      "label": "Orwellian",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "BOTANIST_EXACT",
+      "label": "Exact Botanist",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "BRAINROT",
+      "label": "Brainrot",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "CALENDAR_EXACT",
+      "label": "Exact Calendar",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DEVIL_EXACT",
+      "label": "Exact Devil",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_EIGHT",
+      "label": "Eight",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_FIVE",
+      "label": "Five",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_FOUR",
+      "label": "Four",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_NINE",
+      "label": "Nine",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_ONE",
+      "label": "One",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_SEVEN",
+      "label": "Seven",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_SIX",
+      "label": "Six",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_THREE",
+      "label": "Three",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_TWO",
+      "label": "Two",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "DIGIT_ZERO",
+      "label": "Zero",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "EIGHTY_SIX_EXACT",
+      "label": "Exact Eighty-Six",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "EMERGENCY_EXACT",
+      "label": "Exact Emergency",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "EXACT_BOOB_80085",
+      "label": "Exact 80085",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "EXACT_HELL",
+      "label": "Exact Hell",
+      "count": 1,
+      "percent": 0.0001
+    },
+    {
+      "id": "GROUNDHOG_DAY",
+      "label": "Groundhog Day",
+      "count": 1,
+      "percent": 0.0001
+    }
+  ]
+}

@@ -1,0 +1,877 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RNGdle Calculator</title>
+  <style>
+    :root {
+      color-scheme: light dark;
+      --bg: #f5f3ee;
+      --panel: #ffffff;
+      --panel-2: #eef5f2;
+      --ink: #171717;
+      --muted: #646464;
+      --line: #d6d0c5;
+      --accent: #116a65;
+      --accent-2: #9d3f2f;
+      --gold: #b78418;
+      --shadow: 0 18px 50px rgba(34, 29, 21, 0.12);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #151714;
+        --panel: #20231f;
+        --panel-2: #1a2926;
+        --ink: #f3f1ea;
+        --muted: #aaa49a;
+        --line: #383b34;
+        --accent: #5cc6b8;
+        --accent-2: #dd806c;
+        --gold: #e0b24b;
+        --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(135deg, rgba(17, 106, 101, 0.10), transparent 34%),
+        linear-gradient(225deg, rgba(157, 63, 47, 0.11), transparent 30%),
+        var(--bg);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      width: min(1160px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 36px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 4.8rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      margin: 12px 0 0;
+      max-width: 620px;
+      color: var(--muted);
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .source {
+      justify-self: end;
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.5;
+      max-width: 380px;
+    }
+
+    .source a { color: var(--accent); }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 360px 1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .panel {
+      background: color-mix(in srgb, var(--panel) 94%, transparent);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .controls {
+      position: sticky;
+      top: 16px;
+      padding: 18px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .number-row {
+      display: grid;
+      grid-template-columns: 1fr 48px;
+      gap: 8px;
+    }
+
+    input {
+      width: 100%;
+      min-width: 0;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      color: var(--ink);
+      padding: 13px 12px;
+      font: 700 1.55rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      letter-spacing: 0;
+    }
+
+    button {
+      border: 0;
+      border-radius: 6px;
+      background: var(--ink);
+      color: var(--panel);
+      cursor: pointer;
+      font-weight: 800;
+      transition: transform 140ms ease, opacity 140ms ease;
+    }
+
+    button:hover { transform: translateY(-1px); }
+    button:active { transform: translateY(0); opacity: 0.78; }
+
+    .actions {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 10px;
+    }
+
+    .actions button {
+      padding: 10px 12px;
+      background: var(--accent);
+    }
+
+    .actions button:last-child {
+      background: var(--accent-2);
+    }
+
+    .copy-status {
+      min-height: 20px;
+      margin: 8px 0 0;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.4;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: var(--panel-2);
+      min-height: 84px;
+    }
+
+    .stat span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .stat strong {
+      display: block;
+      margin-top: 7px;
+      font-size: 1.45rem;
+      line-height: 1;
+    }
+
+    .digits {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(7, minmax(0, 1fr));
+      gap: 5px;
+    }
+
+    .digit {
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+      font: 800 1.25rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+
+    .summary .stat {
+      min-height: 96px;
+      background: transparent;
+    }
+
+    .summary .rarity-name.trash { color: var(--gold); }
+    .summary .rarity-name.common { color: #6b6b6b; }
+    .summary .rarity-name.uncommon { color: #15803d; }
+    .summary .rarity-name.rare { color: #1d4ed8; }
+    .summary .rarity-name.epic { color: #7e22ce; }
+    .summary .rarity-name.anomaly { color: #c2410c; }
+    .summary .rarity-name.mythic { color: #dc2626; }
+
+    .section {
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .section h2 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 0 12px;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(236px, 1fr));
+      gap: 10px;
+    }
+
+    .badge {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: var(--panel);
+      min-height: 132px;
+      display: grid;
+      gap: 8px;
+      align-content: start;
+    }
+
+    .badge-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .badge-title {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+      font-weight: 800;
+    }
+
+    .emoji { font-size: 1.25rem; }
+
+    .pill {
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      padding: 3px 7px;
+      white-space: nowrap;
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .desc {
+      color: var(--muted);
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      color: var(--muted);
+      font: 700 0.76rem/1.2 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    }
+
+    .empty {
+      border: 1px dashed var(--line);
+      border-radius: 8px;
+      padding: 24px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .common { color: #6b6b6b; }
+    .uncommon { color: #15803d; }
+    .rare { color: #1d4ed8; }
+    .epic { color: #7e22ce; }
+    .anomaly { color: #c2410c; }
+    .mythic { color: #dc2626; }
+    .trash { color: var(--gold); }
+
+    footer {
+      color: var(--muted);
+      font-size: 0.86rem;
+      line-height: 1.6;
+      margin-top: 16px;
+    }
+
+    @media (max-width: 860px) {
+      header, .layout, .summary { grid-template-columns: 1fr; }
+      .source { justify-self: start; }
+      .controls { position: static; }
+    }
+
+    @media (max-width: 520px) {
+      main { width: min(100% - 20px, 1160px); padding-top: 18px; }
+      .stats { grid-template-columns: 1fr; }
+      .digits { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .badge-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div>
+        <h1>RNGdle Calculator</h1>
+        <p class="subtitle">输入 0 到 999,999 的 roll，按官方前端 bundle 中的 203 条 badge 规则计算命中、计分 badge、EP 和 card rarity。</p>
+        <p class="subtitle"><a href="stats.html">查看全量枚举统计可视化</a></p>
+      </div>
+      <p class="source">RNGdle 每日一次 roll；本工具按有效 roll 范围 0-999,999 计算。badge 基于数字属性，稀有度按概率分档，card rarity 按总 EP 排名分档。来源：<a href="https://www.rngdle.com/about" target="_blank" rel="noreferrer">rngdle.com/about</a></p>
+    </header>
+
+    <div class="layout">
+      <aside class="panel controls">
+        <label for="roll">Roll number</label>
+        <div class="number-row">
+          <input id="roll" inputmode="numeric" autocomplete="off" value="1337" aria-label="Roll number">
+          <button id="random" title="随机生成">↻</button>
+        </div>
+        <div class="actions">
+          <button id="calc">计算</button>
+          <button id="best">试试强数</button>
+          <button id="copyShare">复制分享</button>
+        </div>
+        <div id="copyStatus" class="copy-status" aria-live="polite"></div>
+        <div class="stats">
+          <div class="stat"><span>Digit Sum</span><strong id="digitSum">0</strong></div>
+          <div class="stat"><span>Digit Product</span><strong id="digitProduct">0</strong></div>
+          <div class="stat"><span>Length</span><strong id="digitLength">0</strong></div>
+          <div class="stat"><span>Unique Digits</span><strong id="uniqueDigits">0</strong></div>
+        </div>
+        <div id="digits" class="digits" aria-label="Digits"></div>
+        <footer>计算逻辑来自本地固定的 RNGdle 官方前端 chunk。带 “scoring” 标记的 badge 会计入总 EP；同 family 只取最高 EP badge。</footer>
+      </aside>
+
+      <section>
+        <div class="panel summary">
+          <div class="stat"><span>Total EP</span><strong id="totalEp">0</strong></div>
+          <div class="stat"><span>Card Rarity</span><strong id="cardRarity" class="rarity-name">Common</strong></div>
+          <div class="stat"><span>Badges</span><strong id="badgeCount">0</strong></div>
+          <div class="stat"><span>Best Hit</span><strong id="bestHit">None</strong></div>
+        </div>
+
+        <div class="panel section">
+          <h2><span>Triggered Badges</span><span id="triggerCount" class="pill common">0 hits</span></h2>
+          <div id="badges" class="badge-grid"></div>
+        </div>
+
+        <div class="panel section">
+          <h2><span>Near Misses</span><span class="pill rare">useful hints</span></h2>
+          <div id="nearMisses" class="badge-grid"></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="vendor/rngdle-main.js"></script>
+  <script>
+    const MAX = 999999;
+    const SPACE = MAX + 1;
+    const $ = (id) => document.getElementById(id);
+    const officialApi = createOfficialApi();
+    let currentResult = null;
+
+    function createOfficialApi() {
+      const pushed = globalThis.TURBOPACK?.find((entry) => Array.isArray(entry) && entry.some((item) => item === 5641));
+      if (!pushed) return null;
+      const modules = new Map();
+      for (let i = 1; i < pushed.length; i++) {
+        if (typeof pushed[i] !== "number") continue;
+        if (typeof pushed[i + 1] === "function") {
+          modules.set(pushed[i], pushed[i + 1]);
+          i++;
+        } else if (typeof pushed[i + 1] === "number" && typeof pushed[i + 2] === "function") {
+          modules.set(pushed[i], pushed[i + 2]);
+          i += 2;
+        }
+      }
+      const cache = new Map();
+      function load(id) {
+        if (cache.has(id)) return cache.get(id);
+        const fn = modules.get(id);
+        if (!fn) throw new Error(`Missing official RNGdle module ${id}`);
+        const exp = {};
+        cache.set(id, exp);
+        fn({
+          i: load,
+          s(entries) {
+            for (let i = 0; i < entries.length;) {
+              const name = entries[i++];
+              if (entries[i] === 0) {
+                i++;
+                exp[name] = entries[i++];
+              } else {
+                const getter = entries[i++];
+                Object.defineProperty(exp, name, { enumerable: true, get: getter });
+              }
+            }
+          }
+        });
+        return exp;
+      }
+      return load(5641);
+    }
+
+    function titleCase(value) {
+      return value ? value.charAt(0).toUpperCase() + value.slice(1) : "Common";
+    }
+
+    const raritySquares = {
+      trash: "🟫",
+      common: "⬜",
+      uncommon: "🟩",
+      rare: "🟦",
+      epic: "🟪",
+      anomaly: "🟧",
+      mythic: "🟥"
+    };
+
+    const rarityTiers = [
+      { name: "Mythic", cls: "mythic", max: 0.00001 },
+      { name: "Anomaly", cls: "anomaly", max: 0.0001 },
+      { name: "Epic", cls: "epic", max: 0.001 },
+      { name: "Rare", cls: "rare", max: 0.01 },
+      { name: "Uncommon", cls: "uncommon", max: 0.10 },
+      { name: "Common", cls: "common", max: 1 }
+    ];
+
+    const strongNumbers = [1337, 777777, 123456, 654321, 80085, 420420, 314159, 271828, 999999, 121121, 531441];
+
+    function digitsOf(n) {
+      return String(n).split("").map(Number);
+    }
+
+    function sumDigits(n) {
+      return digitsOf(n).reduce((a, b) => a + b, 0);
+    }
+
+    function productDigits(n) {
+      return digitsOf(n).reduce((a, b) => a * b, 1);
+    }
+
+    function digitCounts(n) {
+      const counts = Array(10).fill(0);
+      for (const d of digitsOf(n)) counts[d]++;
+      return counts;
+    }
+
+    function isPrime(n) {
+      if (n < 2) return false;
+      if (n % 2 === 0) return n === 2;
+      if (n % 3 === 0) return n === 3;
+      for (let i = 5; i * i <= n; i += 6) {
+        if (n % i === 0 || n % (i + 2) === 0) return false;
+      }
+      return true;
+    }
+
+    function isSquare(n) {
+      return Number.isInteger(Math.sqrt(n));
+    }
+
+    function isCube(n) {
+      return Number.isInteger(Math.cbrt(n));
+    }
+
+    function isFibonacci(n) {
+      return isSquare(5 * n * n + 4) || isSquare(5 * n * n - 4);
+    }
+
+    function isPalindrome(n) {
+      const s = String(n);
+      return s.length > 1 && s === [...s].reverse().join("");
+    }
+
+    function isHarshad(n) {
+      const s = sumDigits(n);
+      return n > 0 && s > 0 && n % s === 0;
+    }
+
+    function isPronic(n) {
+      const r = Math.floor(Math.sqrt(n));
+      return r * (r + 1) === n;
+    }
+
+    function isPerfectPower(n) {
+      if (n < 4) return false;
+      for (let p = 2; p <= 20; p++) {
+        const root = Math.round(n ** (1 / p));
+        if (root > 1 && root ** p === n) return true;
+      }
+      return false;
+    }
+
+    function hasSequence(n, seq) {
+      return String(n).includes(seq);
+    }
+
+    function isOrderedSequence(n) {
+      const s = String(n);
+      return "0123456789".includes(s) || "9876543210".includes(s);
+    }
+
+    function longestRun(n) {
+      const s = String(n);
+      let best = 1;
+      let current = 1;
+      for (let i = 1; i < s.length; i++) {
+        if (s[i] === s[i - 1]) current++;
+        else current = 1;
+        best = Math.max(best, current);
+      }
+      return best;
+    }
+
+    function hasPairCount(n, size) {
+      return digitCounts(n).some((count) => count >= size);
+    }
+
+    function hasAllSameParity(n) {
+      const ds = digitsOf(n);
+      return ds.every((d) => d % 2 === ds[0] % 2);
+    }
+
+    function hasBookends(n) {
+      const s = String(n);
+      return s.length > 1 && s[0] === s[s.length - 1];
+    }
+
+    function hasEquilibrium(n) {
+      const ds = digitsOf(n);
+      if (ds.length < 2) return false;
+      const mid = Math.floor(ds.length / 2);
+      const left = ds.slice(0, mid).reduce((a, b) => a + b, 0);
+      const right = ds.slice(Math.ceil(ds.length / 2)).reduce((a, b) => a + b, 0);
+      return left === right;
+    }
+
+    function estimatedCount(type, n, arg) {
+      const len = String(n).length;
+      if (type === "exact") return 1;
+      if (type === "div") return Math.floor(MAX / arg);
+      if (type === "contains") return Math.max(1, Math.round(SPACE * Math.min(0.45, (len - String(arg).length + 1) / (10 ** String(arg).length))));
+      if (type === "prefixSuffix") return Math.max(1, Math.round(SPACE / 10));
+      if (type === "palindrome") return 1998;
+      if (type === "prime") return 78498;
+      if (type === "square") return 1001;
+      if (type === "cube") return 101;
+      if (type === "fibonacci") return 31;
+      if (type === "perfectPower") return 1110;
+      if (type === "ordered") return 16;
+      if (type === "allParity") return Math.round(SPACE * 0.055);
+      if (type === "harshad") return Math.round(SPACE * 0.115);
+      if (type === "pronic") return 1000;
+      if (type === "run") return { 2: 468559, 3: 48799, 4: 4599, 5: 410, 6: 37 }[arg] || 10;
+      if (type === "kind") return { 2: 468559, 3: 114265, 4: 17710, 5: 1990, 6: 190, 7: 10 }[arg] || 10;
+      if (type === "sum") return Math.max(1, Math.round(SPACE * 0.02));
+      return Math.round(SPACE * 0.05);
+    }
+
+    function rarityFromProbability(probability) {
+      return rarityTiers.find((tier) => probability <= tier.max) || rarityTiers.at(-1);
+    }
+
+    function epFromProbability(probability) {
+      return Math.max(1, Math.round(-Math.log10(probability) * 70));
+    }
+
+    function badge(id, label, emoji, description, check, countType, arg, family = "pattern") {
+      return { id, label, emoji, description, check, countType, arg, family };
+    }
+
+    const rules = [
+      badge("ZERO", "Zero", "🕳️", "Exactly 0.", (n) => n === 0, "exact"),
+      badge("SINGLE_DIGIT", "Single Digit", "☝️", "Only one digit.", (n) => n >= 0 && n < 10, "div", 100000),
+      badge("PALINDROME", "Palindrome", "🪞", "Reads the same forward and backward.", isPalindrome, "palindrome"),
+      badge("PRIME", "Prime", "🔹", "No positive divisors other than 1 and itself.", isPrime, "prime"),
+      badge("SQUARE", "Square", "◼", "A perfect square.", isSquare, "square"),
+      badge("CUBE", "🧊 Cube", "🧊", "A perfect cube.", isCube, "cube"),
+      badge("FIBONACCI", "Fibonacci", "🌀", "Appears in the Fibonacci sequence.", isFibonacci, "fibonacci"),
+      badge("PERFECT_POWER", "Perfect Power", "⚡", "Can be written as a^b with b > 1.", isPerfectPower, "perfectPower"),
+      badge("HARSHAD", "Harshad", "➗", "Divisible by the sum of its digits.", isHarshad, "harshad"),
+      badge("PRONIC", "Pronic", "▰", "Can be written as n × (n + 1).", isPronic, "pronic"),
+      badge("BINARY_ONLY", "Binary Only", "💾", "Uses only digits 0 and 1.", (n) => /^[01]+$/.test(String(n)), "contains", "01"),
+      badge("BOOKENDS", "Bookends", "📚", "First and last digit match.", hasBookends, "prefixSuffix"),
+      badge("EQUILIBRIUM", "Equilibrium", "⚖️", "Left digit sum equals right digit sum.", hasEquilibrium, "sum"),
+      badge("FLUSH", "Flush", "♣️", "All digits have the same parity.", hasAllSameParity, "allParity"),
+      badge("STRAIGHT", "Straight", "📏", "Digits form an ordered run.", isOrderedSequence, "ordered"),
+      badge("PAIR", "Pair", "👥", "At least one digit appears twice.", (n) => hasPairCount(n, 2), "kind", 2),
+      badge("TRIPS", "Trips", "🎲", "At least one digit appears three times.", (n) => hasPairCount(n, 3), "kind", 3),
+      badge("QUADS", "Quads", "🧱", "At least one digit appears four times.", (n) => hasPairCount(n, 4), "kind", 4),
+      badge("FIVE_KIND", "Five of a Kind", "✋", "At least one digit appears five times.", (n) => hasPairCount(n, 5), "kind", 5),
+      badge("SIX_KIND", "Six of a Kind", "👑", "At least one digit appears six times.", (n) => hasPairCount(n, 6), "kind", 6),
+      badge("CONTIGUOUS_TRIPS", "Contiguous Trips", "🔁", "Three identical digits in a row.", (n) => longestRun(n) >= 3, "run", 3),
+      badge("CONTIGUOUS_QUADS", "Contiguous Quads", "🔂", "Four identical digits in a row.", (n) => longestRun(n) >= 4, "run", 4),
+      badge("DEEP_VOID", "Deep Void", "🌑", "Contains 000.", (n) => hasSequence(n, "000"), "contains", "000"),
+      badge("NINE_ENDING", "Nine Ending", "9️⃣", "Ends with 9.", (n) => String(n).endsWith("9"), "div", 10),
+      badge("DOZEN", "Dozen", "🍩", "Divisible by 12.", (n) => n > 0 && n % 12 === 0, "div", 12),
+      badge("LUCKY_SEVEN_DIV", "Lucky Seven", "🎰", "Divisible by 7.", (n) => n > 0 && n % 7 === 0, "div", 7),
+      badge("ELEVEN", "Eleven", "🕚", "Divisible by 11.", (n) => n > 0 && n % 11 === 0, "div", 11),
+      badge("BLACKJACK", "Blackjack", "🃏", "Digit sum is 21.", (n) => sumDigits(n) === 21, "sum"),
+      badge("MEANING", "Meaning", "🌌", "Contains 42.", (n) => hasSequence(n, "42"), "contains", "42"),
+      badge("NICE", "Nice", "😎", "Contains 69.", (n) => hasSequence(n, "69"), "contains", "69"),
+      badge("DEVIL", "Devil", "🔥", "Contains 666.", (n) => hasSequence(n, "666"), "contains", "666"),
+      badge("JACKPOT", "Jackpot", "💰", "Contains 777.", (n) => hasSequence(n, "777"), "contains", "777"),
+      badge("LEET", "Leet", "💻", "Contains 1337.", (n) => hasSequence(n, "1337"), "contains", "1337"),
+      badge("BOOB", "Boob", "🧮", "Contains 80085.", (n) => hasSequence(n, "80085"), "contains", "80085"),
+      badge("EMERGENCY", "Emergency", "🚨", "Contains 911.", (n) => hasSequence(n, "911"), "contains", "911"),
+      badge("TREE_FIDDY", "Tree Fiddy", "🌲", "Contains 350.", (n) => hasSequence(n, "350"), "contains", "350"),
+      badge("SIXTY_SEVEN", "Sixty Seven", "6️⃣", "Contains 67.", (n) => hasSequence(n, "67"), "contains", "67"),
+      badge("EIGHTY_SIX", "Eighty Six", "🥤", "Contains 86.", (n) => hasSequence(n, "86"), "contains", "86"),
+      badge("PI", "Pi", "🥧", "Contains 314 or 314159.", (n) => hasSequence(n, "314") || hasSequence(n, "314159"), "contains", "314"),
+      badge("E", "Euler", "📐", "Contains 2718.", (n) => hasSequence(n, "2718"), "contains", "2718"),
+      badge("ERROR_404", "Not Found", "🔎", "Contains 404.", (n) => hasSequence(n, "404"), "contains", "404"),
+      badge("YEAR_2024", "Calendar 2024", "📅", "Contains 2024.", (n) => hasSequence(n, "2024"), "contains", "2024"),
+      badge("YEAR_2025", "Calendar 2025", "📆", "Contains 2025.", (n) => hasSequence(n, "2025"), "contains", "2025")
+    ];
+
+    function analyze(n) {
+      if (officialApi) {
+        const raw = officialApi.analyzeNumber(n);
+        const composed = officialApi.composeRollResult(n);
+        const hits = composed.badges.map((badge) => {
+          const info = officialApi.getBadgeInfo(badge.id) || badge;
+          const score = info.score ?? badge.score ?? 0;
+          const tier = officialApi.getBadgeRarityTier(score);
+          return {
+            ...badge,
+            ...info,
+            score,
+            ep: score,
+            probability: info.probability || "",
+            rarity: { name: titleCase(tier), cls: tier },
+            isScoring: badge.isScoring
+          };
+        });
+        const cardTier = officialApi.getCardRarityTier(composed.totalScore);
+        return {
+          n,
+          digits: digitsOf(n),
+          digitSum: sumDigits(n),
+          digitProduct: productDigits(n),
+          uniqueDigits: new Set(String(n)).size,
+          hits,
+          rawBadges: raw.badges,
+          scoringBadges: raw.scoringBadges,
+          totalEp: composed.totalScore,
+          percentile: officialApi.getPercentileForScore(composed.totalScore),
+          card: { name: titleCase(cardTier), cls: cardTier }
+        };
+      }
+      const hits = rules.filter((rule) => rule.check(n)).map((rule) => {
+        const count = estimatedCount(rule.countType, n, rule.arg);
+        const probability = Math.max(1 / SPACE, Math.min(1, count / SPACE));
+        const rarity = rarityFromProbability(probability);
+        return { ...rule, count, probability, rarity, ep: epFromProbability(probability) };
+      }).sort((a, b) => b.ep - a.ep || a.label.localeCompare(b.label));
+
+      const totalEp = hits.reduce((sum, hit) => sum + hit.ep, 0);
+      return {
+        n,
+        digits: digitsOf(n),
+        digitSum: sumDigits(n),
+        digitProduct: productDigits(n),
+        uniqueDigits: new Set(String(n)).size,
+        hits,
+        totalEp,
+        card: cardRarity(totalEp, hits.length)
+      };
+    }
+
+    function cardRarity(ep, count) {
+      const score = ep + count * 18;
+      if (score >= 980) return { name: "Mythic", cls: "mythic" };
+      if (score >= 760) return { name: "Anomaly", cls: "anomaly" };
+      if (score >= 560) return { name: "Epic", cls: "epic" };
+      if (score >= 390) return { name: "Rare", cls: "rare" };
+      if (score >= 230) return { name: "Uncommon", cls: "uncommon" };
+      if (score <= 25) return { name: "Trash", cls: "trash" };
+      return { name: "Common", cls: "common" };
+    }
+
+    function formatProbability(probability) {
+      const oneIn = Math.round(1 / probability);
+      const percent = probability * 100;
+      if (oneIn > 9999) return `1/${oneIn.toLocaleString()}`;
+      if (percent < 0.01) return `${percent.toFixed(4)}%`;
+      if (percent < 1) return `${percent.toFixed(3)}%`;
+      return `${percent.toFixed(2)}%`;
+    }
+
+    function renderBadge(hit) {
+      const probability = typeof hit.probability === "number" ? formatProbability(hit.probability) : hit.probability;
+      const scoreLabel = `${hit.ep.toLocaleString()} EP`;
+      const scoringLabel = hit.isScoring ? "scoring" : "family shadowed";
+      return `
+        <article class="badge">
+          <div class="badge-head">
+            <div class="badge-title"><span class="emoji">${hit.emoji}</span><span>${hit.label}</span></div>
+            <span class="pill ${hit.rarity.cls}">${hit.rarity.name}</span>
+          </div>
+          <div class="desc">${hit.description}</div>
+          <div class="meta">
+            <span>${scoreLabel}</span>
+            ${probability ? `<span>${probability}</span>` : ""}
+            ${typeof hit.count === "number" ? `<span>${hit.count.toLocaleString()} / ${SPACE.toLocaleString()}</span>` : ""}
+            <span>${scoringLabel}</span>
+          </div>
+        </article>
+      `;
+    }
+
+    function topPercentLabel(result) {
+      if (typeof result.percentile === "number" && result.percentile > 0) {
+        const top = Math.max(1, Math.ceil(100 - result.percentile));
+        return `Top ${top}%`;
+      }
+      return result.card.name;
+    }
+
+    function generateShareText(result) {
+      const displayedBadges = result.hits.slice(0, 3);
+      const cardTier = result.card.cls;
+      const lines = [
+        `RNGdle 🎲 ${result.n}`,
+        "",
+        `${raritySquares[cardTier] || "⬜"} ${result.card.name.toUpperCase()} • ${topPercentLabel(result)}`,
+        "",
+        ...displayedBadges.map((badge) => {
+          const badgeTier = badge.rarity?.cls || "common";
+          return `${raritySquares[badgeTier] || "⬜"} ${badge.emoji} ${badge.label}`;
+        })
+      ];
+      const remaining = result.hits.length - displayedBadges.length;
+      if (remaining > 0) lines.push(`+${remaining} more`);
+      lines.push("", `${result.totalEp.toLocaleString()} EP`, "https://rngdle.com");
+      return lines.join("\n");
+    }
+
+    async function copyShareText() {
+      if (!currentResult) calculate();
+      const text = generateShareText(currentResult);
+      try {
+        if (navigator.clipboard?.writeText) {
+          await navigator.clipboard.writeText(text);
+        } else {
+          const textarea = document.createElement("textarea");
+          textarea.value = text;
+          textarea.setAttribute("readonly", "");
+          textarea.style.position = "fixed";
+          textarea.style.left = "-9999px";
+          document.body.appendChild(textarea);
+          textarea.select();
+          document.execCommand("copy");
+          textarea.remove();
+        }
+        $("copyStatus").textContent = "分享文本已复制。";
+      } catch (error) {
+        $("copyStatus").textContent = "复制失败，已在控制台输出分享文本。";
+        console.log(text);
+      }
+    }
+
+    function nearMisses(n, hits) {
+      const hitIds = new Set(hits.map((hit) => hit.id));
+      const suggestions = [];
+      const s = String(n);
+      if (!hitIds.has("PALINDROME") && s.length > 1) suggestions.push({ label: "Palindrome", emoji: "🪞", description: `试试 ${s + [...s].reverse().join("")} 或把末位改成首位。` });
+      if (!hitIds.has("PRIME")) suggestions.push({ label: "Prime", emoji: "🔹", description: "相邻数字里常能找到质数；避开偶数和 5 结尾。"});
+      if (!hitIds.has("JACKPOT")) suggestions.push({ label: "Blackjack", emoji: "🃏", description: `当前 digit sum 是 ${sumDigits(n)}，目标 21。`});
+      if (!hitIds.has("LEET")) suggestions.push({ label: "Leet", emoji: "💻", description: "含 1337 的数字通常能叠加梗数和模式类 badge。"});
+      if (!hitIds.has("CONTIGUOUS_TRIPS")) suggestions.push({ label: "Trips Run", emoji: "🔁", description: "连续三个相同数字可触发 contiguous trips。"});
+      return suggestions.slice(0, 4);
+    }
+
+    function render(result) {
+      currentResult = result;
+      $("digitSum").textContent = result.digitSum;
+      $("digitProduct").textContent = result.digitProduct.toLocaleString();
+      $("digitLength").textContent = result.digits.length;
+      $("uniqueDigits").textContent = result.uniqueDigits;
+      $("totalEp").textContent = result.totalEp.toLocaleString();
+      $("cardRarity").textContent = result.card.name;
+      $("cardRarity").className = `rarity-name ${result.card.cls}`;
+      $("badgeCount").textContent = result.hits.length;
+      $("bestHit").textContent = result.hits[0]?.label || "None";
+      $("triggerCount").textContent = `${result.hits.length} hits`;
+      $("triggerCount").className = `pill ${result.hits[0]?.rarity.cls || "common"}`;
+      $("digits").innerHTML = result.digits.map((digit) => `<div class="digit">${digit}</div>`).join("");
+      $("badges").innerHTML = result.hits.length
+        ? result.hits.map(renderBadge).join("")
+        : `<div class="empty">没有命中当前规则集中的 badge。</div>`;
+      $("nearMisses").innerHTML = nearMisses(result.n, result.hits).map((item) => `
+        <article class="badge">
+          <div class="badge-title"><span class="emoji">${item.emoji}</span><span>${item.label}</span></div>
+          <div class="desc">${item.description}</div>
+        </article>
+      `).join("");
+    }
+
+    function parseRoll() {
+      const raw = $("roll").value.replace(/[^\d]/g, "");
+      const n = Math.max(0, Math.min(MAX, Number(raw || 0)));
+      $("roll").value = String(n);
+      return n;
+    }
+
+    function calculate() {
+      render(analyze(parseRoll()));
+    }
+
+    $("calc").addEventListener("click", calculate);
+    $("roll").addEventListener("input", calculate);
+    $("copyShare").addEventListener("click", copyShareText);
+    $("random").addEventListener("click", () => {
+      $("roll").value = Math.floor(Math.random() * SPACE);
+      calculate();
+    });
+    $("best").addEventListener("click", () => {
+      $("roll").value = strongNumbers[Math.floor(Math.random() * strongNumbers.length)];
+      calculate();
+    });
+
+    calculate();
+  </script>
+</body>
+</html>

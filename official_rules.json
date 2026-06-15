@@ -1,0 +1,5215 @@
+{
+  "source": "https://www.rngdle.com/_next/static/chunks/6d375db2482ce7e8.js",
+  "extractedAt": "2026-06-15T09:46:59.826Z",
+  "badgeCount": 203,
+  "scoredBadgeCount": 203,
+  "scorePercentileCount": 53819,
+  "badgeRarityThresholds": {
+    "common": 1000,
+    "uncommon": 10000,
+    "rare": 100000,
+    "epic": 1000000,
+    "anomaly": 10000000
+  },
+  "cardPercentileThresholds": {
+    "trash": 1,
+    "common": 50,
+    "uncommon": 75,
+    "rare": 90,
+    "epic": 95,
+    "anomaly": 99
+  },
+  "calculation": {
+    "analyze": "Run every BADGE_DEFINITIONS[i].check(number, number.toString()).",
+    "scoring": "Sum scores for badges not in a family, plus only the highest score badge per family.",
+    "cardRarity": "Look up totalScore in SCORE_PERCENTILES, then compare against card percentile thresholds."
+  },
+  "badges": [
+    {
+      "id": "PRIME",
+      "label": "Prime Number",
+      "description": "Divisible only by 1 and itself.",
+      "emoji": "💎",
+      "family": null,
+      "score": 1274,
+      "probability": "7.8%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          2,
+          3,
+          5,
+          7,
+          11,
+          13,
+          17,
+          97,
+          101,
+          997
+        ],
+        "reject": [
+          0,
+          1,
+          4,
+          6,
+          8,
+          9,
+          10,
+          100,
+          1000,
+          1000000
+        ]
+      }
+    },
+    {
+      "id": "PALINDROME",
+      "label": "Palindrome",
+      "description": "Reads the same forwards and backwards.",
+      "emoji": "🪞",
+      "family": null,
+      "score": 50025,
+      "probability": "0.20%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          0,
+          1,
+          11,
+          121,
+          1221,
+          12321,
+          123321,
+          999999
+        ],
+        "reject": [
+          10,
+          12,
+          123,
+          1234,
+          12345,
+          100000
+        ]
+      }
+    },
+    {
+      "id": "HEAVY",
+      "label": "Heavy",
+      "description": "The sum of its digits exceeds 45.",
+      "emoji": "🧱",
+      "family": null,
+      "score": 33300,
+      "probability": "0.30%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          999999,
+          999989,
+          989999,
+          888888,
+          799999
+        ],
+        "reject": [
+          0,
+          1,
+          10,
+          100,
+          1000,
+          10000
+        ]
+      }
+    },
+    {
+      "id": "VOID",
+      "label": "Void",
+      "description": "Contains no zeros.",
+      "emoji": "🕳️",
+      "family": null,
+      "score": 167,
+      "probability": "59.8%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          1,
+          11,
+          123,
+          999,
+          12345,
+          987654
+        ],
+        "reject": [
+          0,
+          10,
+          100,
+          1000,
+          10000,
+          100000,
+          1000000
+        ]
+      }
+    },
+    {
+      "id": "NICE",
+      "label": "Nice",
+      "description": "Contains the number 69.",
+      "emoji": "😏",
+      "family": "NICE",
+      "score": 2024,
+      "probability": "4.9%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          69,
+          169,
+          690,
+          6969,
+          123694,
+          696969
+        ],
+        "reject": [
+          0,
+          1,
+          68,
+          70,
+          96,
+          679,
+          689
+        ]
+      }
+    },
+    {
+      "id": "NICE_EXACT",
+      "label": "Exact Nice",
+      "description": "Exactly \"69\".",
+      "emoji": "😏",
+      "family": "NICE",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          69,
+          69,
+          69
+        ],
+        "reject": [
+          690,
+          169,
+          6,
+          9,
+          696
+        ]
+      }
+    },
+    {
+      "id": "EVEN",
+      "label": "Even",
+      "description": "Divisible by 2.",
+      "emoji": "⚖️",
+      "family": null,
+      "score": 200,
+      "probability": "50.0%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          0,
+          2,
+          4,
+          10,
+          100,
+          1000
+        ],
+        "reject": [
+          1,
+          3,
+          5,
+          11,
+          101,
+          999
+        ]
+      }
+    },
+    {
+      "id": "ODD",
+      "label": "Odd",
+      "description": "Not divisible by 2.",
+      "emoji": "🦄",
+      "family": null,
+      "score": 200,
+      "probability": "50.0%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          1,
+          3,
+          5,
+          11,
+          101,
+          999
+        ],
+        "reject": [
+          0,
+          2,
+          4,
+          10,
+          100,
+          1000
+        ]
+      }
+    },
+    {
+      "id": "FEATHER",
+      "label": "Feather",
+      "description": "The sum of its digits is less than 15.",
+      "emoji": "🪶",
+      "family": null,
+      "score": 2667,
+      "probability": "3.8%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          0,
+          1,
+          10,
+          100,
+          1000,
+          10000
+        ],
+        "reject": [
+          99,
+          999,
+          9999,
+          99999,
+          888888
+        ]
+      }
+    },
+    {
+      "id": "CLEAN",
+      "label": "Clean",
+      "description": "Ends in a zero.",
+      "emoji": "🧼",
+      "family": null,
+      "score": 1000,
+      "probability": "10.0%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          0,
+          10,
+          100,
+          1000,
+          12340
+        ],
+        "reject": [
+          1,
+          11,
+          101,
+          1001,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "SEMI_CLEAN",
+      "label": "Semi-Clean",
+      "description": "Ends in a 5.",
+      "emoji": "🧹",
+      "family": null,
+      "score": 1000,
+      "probability": "10.0%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          5,
+          15,
+          25,
+          105,
+          12345
+        ],
+        "reject": [
+          0,
+          10,
+          50,
+          100,
+          12340
+        ]
+      }
+    },
+    {
+      "id": "CENTURY",
+      "label": "Century",
+      "description": "Ends in double zeros.",
+      "emoji": "💯",
+      "family": null,
+      "score": 10000,
+      "probability": "1.00%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          100,
+          200,
+          300,
+          1000,
+          12300
+        ],
+        "reject": [
+          10,
+          99,
+          101,
+          1001,
+          12340
+        ]
+      }
+    },
+    {
+      "id": "MILLENNIUM",
+      "label": "Millennium",
+      "description": "Ends in triple zeros.",
+      "emoji": "🗓️",
+      "family": null,
+      "score": 100000,
+      "probability": "0.10%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          1000,
+          2000,
+          10000,
+          123000
+        ],
+        "reject": [
+          100,
+          999,
+          1001,
+          10001
+        ]
+      }
+    },
+    {
+      "id": "DOZEN",
+      "label": "Dozen",
+      "description": "Divisible by 12.",
+      "emoji": "🍩",
+      "family": null,
+      "score": 1200,
+      "probability": "8.3%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          12,
+          24,
+          36,
+          144,
+          1200
+        ],
+        "reject": [
+          0,
+          1,
+          11,
+          13,
+          100
+        ]
+      }
+    },
+    {
+      "id": "LUCKY_SEVEN_DIV",
+      "label": "Lucky Seven (Divisible)",
+      "description": "Divisible by 7.",
+      "emoji": "🎰",
+      "family": null,
+      "score": 700,
+      "probability": "14.3%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          7,
+          14,
+          21,
+          49,
+          700
+        ],
+        "reject": [
+          0,
+          1,
+          6,
+          8,
+          15,
+          100
+        ]
+      }
+    },
+    {
+      "id": "ELEVEN",
+      "label": "Eleven",
+      "description": "Divisible by 11.",
+      "emoji": "🕚",
+      "family": null,
+      "score": 1100,
+      "probability": "9.1%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          11,
+          22,
+          33,
+          121,
+          1100
+        ],
+        "reject": [
+          0,
+          1,
+          10,
+          12,
+          100
+        ]
+      }
+    },
+    {
+      "id": "GROUNDED",
+      "label": "Grounded",
+      "description": "The first digit is smaller than the last.",
+      "emoji": "⚓",
+      "family": null,
+      "score": 250,
+      "probability": "40.0%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          12,
+          19,
+          102,
+          1234,
+          15678
+        ],
+        "reject": [
+          21,
+          91,
+          201,
+          4321,
+          87654
+        ]
+      }
+    },
+    {
+      "id": "LIFTOFF",
+      "label": "Liftoff",
+      "description": "The first digit is larger than the last.",
+      "emoji": "🚀",
+      "family": null,
+      "score": 200,
+      "probability": "50.0%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          21,
+          91,
+          201,
+          4321,
+          87654
+        ],
+        "reject": [
+          12,
+          19,
+          102,
+          1234,
+          15678
+        ]
+      }
+    },
+    {
+      "id": "EQUILIBRIUM",
+      "label": "Equilibrium",
+      "description": "The first and last digits are identical.",
+      "emoji": "🧘",
+      "family": "EQUILIBRIUM",
+      "score": 1000,
+      "probability": "10.0%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          11,
+          101,
+          1221,
+          12321,
+          989
+        ],
+        "reject": [
+          10,
+          12,
+          123,
+          1234,
+          9876
+        ]
+      }
+    },
+    {
+      "id": "TURTLE",
+      "label": "Turtle",
+      "description": "All consecutive digits differ by at most 1.",
+      "emoji": "🐢",
+      "family": "PROGRESSION",
+      "score": 36049,
+      "probability": "0.28%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          11,
+          112233,
+          123321,
+          12321,
+          445566,
+          12,
+          99
+        ],
+        "reject": [
+          13,
+          135,
+          19,
+          2468,
+          192
+        ]
+      }
+    },
+    {
+      "id": "FIREFLY",
+      "label": "Firefly",
+      "description": "One unique digit among identical others.",
+      "emoji": "🪲",
+      "family": "DUALITY",
+      "score": 82237,
+      "probability": "0.12%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          1112,
+          1121,
+          1211,
+          2111,
+          111151,
+          999929,
+          33383
+        ],
+        "reject": [
+          12,
+          123,
+          1122,
+          1111,
+          111,
+          112233,
+          11
+        ]
+      }
+    },
+    {
+      "id": "ECHO",
+      "label": "Echo",
+      "description": "The first half repeats as the second half.",
+      "emoji": "📣",
+      "family": null,
+      "score": 100100,
+      "probability": "0.10%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          11,
+          1212,
+          123123,
+          99,
+          123456123456
+        ],
+        "reject": [
+          1,
+          12,
+          123,
+          1234,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "SANDWICH",
+      "label": "Sandwich",
+      "description": "First and last digits match, with at least one different digit between them.",
+      "emoji": "🥪",
+      "family": "EQUILIBRIUM",
+      "score": 1000,
+      "probability": "10.0%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          101,
+          858,
+          12321,
+          90109
+        ],
+        "reject": [
+          111,
+          11,
+          123,
+          1234
+        ]
+      }
+    },
+    {
+      "id": "BOOKENDS",
+      "label": "Bookends",
+      "description": "The first two digits match the last two.",
+      "emoji": "📚",
+      "family": "BOOKENDS",
+      "score": 10010,
+      "probability": "1.00%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          1212,
+          123412,
+          999999,
+          121212
+        ],
+        "reject": [
+          123,
+          1234,
+          12345,
+          121
+        ]
+      }
+    },
+    {
+      "id": "ASCENSION",
+      "label": "Ascension",
+      "description": "Every digit is strictly larger than the previous.",
+      "emoji": "📈",
+      "family": "MONOTONIC",
+      "score": 219298,
+      "probability": "0.05%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          12,
+          123,
+          1234,
+          13579,
+          12389
+        ],
+        "reject": [
+          11,
+          121,
+          1232,
+          4321,
+          12321
+        ]
+      }
+    },
+    {
+      "id": "DECAY",
+      "label": "Decay",
+      "description": "Every digit is strictly smaller than the previous.",
+      "emoji": "📉",
+      "family": "MONOTONIC",
+      "score": 119474,
+      "probability": "0.08%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          21,
+          321,
+          4321,
+          97531,
+          98210
+        ],
+        "reject": [
+          11,
+          121,
+          1232,
+          1234,
+          12321
+        ]
+      }
+    },
+    {
+      "id": "CASCADE",
+      "label": "Cascade",
+      "description": "Every digit increases by exactly 1 from the previous.",
+      "emoji": "🌊",
+      "family": "PROGRESSION",
+      "score": 3333337,
+      "probability": "0.0030%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          12,
+          123,
+          1234,
+          12345,
+          23456
+        ],
+        "reject": [
+          13,
+          124,
+          1357,
+          11,
+          121
+        ]
+      }
+    },
+    {
+      "id": "WATERFALL",
+      "label": "Waterfall",
+      "description": "Every digit decreases by exactly 1 from the previous.",
+      "emoji": "🚿",
+      "family": "PROGRESSION",
+      "score": 2857146,
+      "probability": "0.0035%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          21,
+          321,
+          4321,
+          54321,
+          98765
+        ],
+        "reject": [
+          31,
+          421,
+          9753,
+          11,
+          121
+        ]
+      }
+    },
+    {
+      "id": "MOUNTAIN",
+      "label": "Mountain",
+      "description": "Digits ascend to a peak and then descend.",
+      "emoji": "🏔️",
+      "family": "PEAK",
+      "score": 5885,
+      "probability": "1.7%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          131,
+          1341,
+          12391,
+          12981,
+          1354
+        ],
+        "reject": [
+          1239,
+          931,
+          123,
+          321,
+          111,
+          1212
+        ]
+      }
+    },
+    {
+      "id": "VALLEY",
+      "label": "Valley",
+      "description": "Digits descend to a trough and then ascend.",
+      "emoji": "🏜️",
+      "family": "PEAK",
+      "score": 4199,
+      "probability": "2.4%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          313,
+          3129,
+          93129,
+          98123,
+          5014
+        ],
+        "reject": [
+          931,
+          123,
+          321,
+          111,
+          1212
+        ]
+      }
+    },
+    {
+      "id": "HILLS",
+      "label": "Hills",
+      "description": "Digits strictly alternate between rising and falling.",
+      "emoji": "🏞️",
+      "family": null,
+      "score": 733,
+      "probability": "13.6%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          3728,
+          19281,
+          38291,
+          5836,
+          291837
+        ],
+        "reject": [
+          123,
+          321,
+          1234,
+          4321,
+          1111,
+          131,
+          12321,
+          12
+        ]
+      }
+    },
+    {
+      "id": "MINI_ECHO",
+      "label": "Mini Echo",
+      "description": "Contains an adjacent 2-digit repeat.",
+      "emoji": "🔂",
+      "family": "REPEAT",
+      "score": 3704,
+      "probability": "2.7%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          1212,
+          5151,
+          515192,
+          812124,
+          3434,
+          996767
+        ],
+        "reject": [
+          123,
+          1234,
+          12345,
+          917717,
+          1213
+        ]
+      }
+    },
+    {
+      "id": "RHYME",
+      "label": "Rhyme",
+      "description": "Contains the same 2+ digit substring twice.",
+      "emoji": "🎶",
+      "family": "REPEAT",
+      "score": 1872,
+      "probability": "5.3%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          917717,
+          123412,
+          5151,
+          121234,
+          1212,
+          112112
+        ],
+        "reject": [
+          123,
+          1234,
+          12345,
+          123456,
+          1023
+        ]
+      }
+    },
+    {
+      "id": "CONTIGUOUS_TRIPS",
+      "label": "Contiguous Trips",
+      "description": "Three identical consecutive digits.",
+      "emoji": "➖",
+      "family": "CONTIGUOUS_RUN",
+      "score": 2784,
+      "probability": "3.6%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          111,
+          1000,
+          777,
+          12223,
+          99945
+        ],
+        "reject": [
+          0,
+          1,
+          11,
+          12,
+          1212
+        ]
+      }
+    },
+    {
+      "id": "CONTIGUOUS_QUADS",
+      "label": "Contiguous Quads",
+      "description": "Four identical consecutive digits.",
+      "emoji": "➖➖",
+      "family": "CONTIGUOUS_RUN",
+      "score": 37023,
+      "probability": "0.27%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          1111,
+          10000,
+          7777,
+          122223,
+          999945
+        ],
+        "reject": [
+          111,
+          1000,
+          12,
+          1212
+        ]
+      }
+    },
+    {
+      "id": "CONTIGUOUS_FIVES",
+      "label": "Contiguous Fives",
+      "description": "Five identical consecutive digits.",
+      "emoji": "➖➖➖",
+      "family": "CONTIGUOUS_RUN",
+      "score": 552487,
+      "probability": "0.02%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          11111,
+          100000,
+          77777,
+          122222
+        ],
+        "reject": [
+          1111,
+          10000,
+          12,
+          1212
+        ]
+      }
+    },
+    {
+      "id": "CONTIGUOUS_SIXES",
+      "label": "Contiguous Sixes",
+      "description": "Six identical consecutive digits.",
+      "emoji": "➖➖➖➖",
+      "family": "CONTIGUOUS_RUN",
+      "score": 10000010,
+      "probability": "0.0010%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          111111,
+          1000000,
+          777777,
+          999999
+        ],
+        "reject": [
+          11111,
+          100000,
+          12,
+          1212
+        ]
+      }
+    },
+    {
+      "id": "BINARY_SOUL",
+      "label": "Binary Soul",
+      "description": "Only 0s and 1s.",
+      "emoji": "🤖",
+      "family": null,
+      "score": 1538463,
+      "probability": "0.0065%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          0,
+          1,
+          10,
+          11,
+          101,
+          1011
+        ],
+        "reject": [
+          2,
+          12,
+          123,
+          102,
+          1012
+        ]
+      }
+    },
+    {
+      "id": "DUALITY",
+      "label": "Duality",
+      "description": "Uses exactly two different digits.",
+      "emoji": "☯️",
+      "family": "DUALITY",
+      "score": 21654,
+      "probability": "0.46%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          12,
+          11221122,
+          1212,
+          112211,
+          10
+        ],
+        "reject": [
+          1,
+          123,
+          111,
+          1234
+        ]
+      }
+    },
+    {
+      "id": "TRINITY",
+      "label": "Trinity",
+      "description": "Uses exactly three different digits.",
+      "emoji": "⚜️",
+      "family": null,
+      "score": 1265,
+      "probability": "7.9%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          123,
+          112233,
+          12312,
+          11223,
+          789
+        ],
+        "reject": [
+          1,
+          11,
+          12,
+          1234,
+          111
+        ]
+      }
+    },
+    {
+      "id": "QUARTET",
+      "label": "Quartet",
+      "description": "Uses exactly four different digits.",
+      "emoji": "🎻",
+      "family": null,
+      "score": 290,
+      "probability": "34.5%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          1234,
+          12341234,
+          1122334411,
+          4321
+        ],
+        "reject": [
+          123,
+          12345,
+          111,
+          1111
+        ]
+      }
+    },
+    {
+      "id": "HETEROGENEOUS",
+      "label": "Heterogeneous",
+      "description": "No repeated digits.",
+      "emoji": "🥗",
+      "family": null,
+      "score": 593,
+      "probability": "16.9%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          1,
+          12,
+          123,
+          1234,
+          12345
+        ],
+        "reject": [
+          11,
+          112,
+          1223,
+          12321
+        ]
+      }
+    },
+    {
+      "id": "HOMOGENEOUS",
+      "label": "Homogeneous",
+      "description": "All digits are the same.",
+      "emoji": "🥛",
+      "family": null,
+      "score": 2222224,
+      "probability": "0.0045%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          11,
+          111,
+          222,
+          7777,
+          999999
+        ],
+        "reject": [
+          0,
+          1,
+          12,
+          121,
+          1223
+        ]
+      }
+    },
+    {
+      "id": "ALTERNATOR",
+      "label": "Alternator",
+      "description": "Digits strictly alternate between even and odd.",
+      "emoji": "⚡",
+      "family": null,
+      "score": 2845,
+      "probability": "3.5%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          12,
+          121,
+          1212,
+          123,
+          3456,
+          21,
+          2345,
+          8989,
+          654,
+          8383
+        ],
+        "reject": [
+          11,
+          22,
+          1,
+          1213
+        ]
+      }
+    },
+    {
+      "id": "ZIPPER",
+      "label": "Zipper",
+      "description": "Two digits alternating perfectly.",
+      "emoji": "🤐",
+      "family": null,
+      "score": 246914,
+      "probability": "0.04%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          12,
+          121,
+          5757,
+          89898,
+          1010
+        ],
+        "reject": [
+          1,
+          11,
+          123,
+          1231,
+          111,
+          1111
+        ]
+      }
+    },
+    {
+      "id": "HOPSCOTCH",
+      "label": "Hopscotch",
+      "description": "A digit appears at every other position (2 times).",
+      "emoji": "🦘",
+      "family": "HOPSCOTCH",
+      "score": 312,
+      "probability": "32.0%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          1213,
+          3141,
+          2324,
+          5152,
+          533121
+        ],
+        "reject": [
+          1234,
+          121212,
+          934303,
+          11,
+          1111,
+          12131,
+          51525
+        ]
+      }
+    },
+    {
+      "id": "DOUBLE_HOP",
+      "label": "Double Hop",
+      "description": "A digit appears at every other position (3 times).",
+      "emoji": "🦘🦘",
+      "family": "HOPSCOTCH",
+      "score": 5321,
+      "probability": "1.9%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          12131,
+          934303,
+          121212,
+          313233,
+          515253
+        ],
+        "reject": [
+          1213,
+          1234,
+          12345,
+          111,
+          11111,
+          111111
+        ]
+      }
+    },
+    {
+      "id": "FRAMED_PAIR",
+      "label": "Framed Pair",
+      "description": "A 4-digit number where the middle two digits match each other but differ from both end digits.",
+      "emoji": "🖼️",
+      "family": "PAIRS",
+      "score": 137174,
+      "probability": "0.07%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          1221,
+          5665,
+          3443,
+          8998,
+          2332,
+          1223
+        ],
+        "reject": [
+          1111,
+          1121,
+          2211,
+          12345,
+          122,
+          2221,
+          2222
+        ]
+      }
+    },
+    {
+      "id": "FRAMED_TRIPLE",
+      "label": "Framed Triple",
+      "description": "A triple in the middle, bookended by different digits.",
+      "emoji": "🖼️🖼️",
+      "family": "OF_A_KIND",
+      "score": 137174,
+      "probability": "0.07%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          12221,
+          34443,
+          56665,
+          78887,
+          90009,
+          12223
+        ],
+        "reject": [
+          11111,
+          12211,
+          22212,
+          122221,
+          1222,
+          2221,
+          22222
+        ]
+      }
+    },
+    {
+      "id": "FRAMED_DOUBLE",
+      "label": "Framed Double",
+      "description": "Two pairs in the middle, bookended by different digits.",
+      "emoji": "🖼️🖼️🖼️",
+      "family": "PAIRS",
+      "score": 15242,
+      "probability": "0.66%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          522009,
+          133447,
+          244558,
+          366770,
+          122334
+        ],
+        "reject": [
+          111111,
+          112233,
+          122211,
+          123456,
+          222222,
+          122244
+        ]
+      }
+    },
+    {
+      "id": "SQUARE",
+      "label": "2nd Power",
+      "description": "A perfect square (n²).",
+      "emoji": "🟦",
+      "family": "POWER",
+      "score": 99900,
+      "probability": "0.10%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          0,
+          1,
+          4,
+          9,
+          16,
+          144,
+          10000
+        ],
+        "reject": [
+          2,
+          3,
+          5,
+          10,
+          50,
+          1000
+        ]
+      }
+    },
+    {
+      "id": "CUBE",
+      "label": "3rd Power",
+      "description": "A perfect cube (n³).",
+      "emoji": "🧊",
+      "family": "POWER",
+      "score": 990100,
+      "probability": "0.01%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          0,
+          1,
+          8,
+          27,
+          64,
+          1000
+        ],
+        "reject": [
+          2,
+          3,
+          5,
+          10,
+          100,
+          999
+        ]
+      }
+    },
+    {
+      "id": "FOURTH_POWER",
+      "label": "4th Power",
+      "description": "A perfect fourth power (n⁴).",
+      "emoji": "📦",
+      "family": "POWER",
+      "score": 3125003,
+      "probability": "0.0032%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          0,
+          1,
+          16,
+          81,
+          256,
+          625
+        ],
+        "reject": [
+          2,
+          8,
+          15,
+          100,
+          1000
+        ]
+      }
+    },
+    {
+      "id": "FIFTH_POWER",
+      "label": "5th Power",
+      "description": "A perfect fifth power (n⁵).",
+      "emoji": "🖐️",
+      "family": "POWER",
+      "score": 6250006,
+      "probability": "0.0016%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          0,
+          1,
+          32,
+          243,
+          3125,
+          7776
+        ],
+        "reject": [
+          2,
+          8,
+          31,
+          100,
+          1000
+        ]
+      }
+    },
+    {
+      "id": "SIXTH_POWER",
+      "label": "6th Power",
+      "description": "A perfect sixth power (n⁶).",
+      "emoji": "🎲",
+      "family": "POWER",
+      "score": 9090918,
+      "probability": "0.0011%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          0,
+          1,
+          64,
+          729,
+          15625
+        ],
+        "reject": [
+          2,
+          8,
+          63,
+          100,
+          1000
+        ]
+      }
+    },
+    {
+      "id": "SEVENTH_POWER",
+      "label": "7th Power",
+      "description": "A perfect seventh power (n⁷).",
+      "emoji": "🌈",
+      "family": "POWER",
+      "score": 12500013,
+      "probability": "0.0008%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          0,
+          1,
+          128,
+          2187,
+          16384
+        ],
+        "reject": [
+          2,
+          8,
+          127,
+          100,
+          1000
+        ]
+      }
+    },
+    {
+      "id": "EIGHTH_POWER",
+      "label": "8th Power",
+      "description": "A perfect eighth power (n⁸).",
+      "emoji": "🎱",
+      "family": "POWER",
+      "score": 16666683,
+      "probability": "0.0006%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          0,
+          1,
+          256,
+          6561
+        ],
+        "reject": [
+          2,
+          8,
+          255,
+          100,
+          1000
+        ]
+      }
+    },
+    {
+      "id": "NINTH_POWER",
+      "label": "9th Power",
+      "description": "A perfect ninth power (n⁹).",
+      "emoji": "☁️",
+      "family": "POWER",
+      "score": 20000020,
+      "probability": "0.0005%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          0,
+          1,
+          512,
+          19683
+        ],
+        "reject": [
+          2,
+          8,
+          511,
+          100,
+          1000
+        ]
+      }
+    },
+    {
+      "id": "TENTH_POWER",
+      "label": "10th Power",
+      "description": "A perfect tenth power (n¹⁰).",
+      "emoji": "🔟",
+      "family": "POWER",
+      "score": 25000025,
+      "probability": "0.0004%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          0,
+          1,
+          1024,
+          59049
+        ],
+        "reject": [
+          2,
+          8,
+          1023,
+          100,
+          1000
+        ]
+      }
+    },
+    {
+      "id": "ELEVENTH_POWER",
+      "label": "11th Power",
+      "description": "A perfect eleventh power (n¹¹).",
+      "emoji": "🕚",
+      "family": "POWER",
+      "score": 25000025,
+      "probability": "0.0004%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          0,
+          1,
+          2048,
+          177147
+        ],
+        "reject": [
+          2,
+          10,
+          100,
+          2047,
+          2049
+        ]
+      }
+    },
+    {
+      "id": "THIRTEENTH_POWER",
+      "label": "13th Power",
+      "description": "A perfect thirteenth power (n¹³).",
+      "emoji": "💀",
+      "family": "POWER",
+      "score": 33333367,
+      "probability": "0.0003%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          0,
+          1,
+          8192
+        ],
+        "reject": [
+          2,
+          8191,
+          8193
+        ]
+      }
+    },
+    {
+      "id": "SEVENTEENTH_POWER",
+      "label": "17th Power",
+      "description": "A perfect seventeenth power (n¹⁷).",
+      "emoji": "🧙",
+      "family": "POWER",
+      "score": 33333367,
+      "probability": "0.0003%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          0,
+          1,
+          131072
+        ],
+        "reject": [
+          2,
+          131071,
+          131073
+        ]
+      }
+    },
+    {
+      "id": "NINETEENTH_POWER",
+      "label": "19th Power",
+      "description": "A perfect nineteenth power (n¹⁹).",
+      "emoji": "🌑",
+      "family": "POWER",
+      "score": 33333367,
+      "probability": "0.0003%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          0,
+          1,
+          524288
+        ],
+        "reject": [
+          2,
+          524287,
+          524289
+        ]
+      }
+    },
+    {
+      "id": "FIBONACCI",
+      "label": "Fibonacci Number",
+      "description": "Part of the golden ratio sequence found in nature.",
+      "emoji": "🐚",
+      "family": null,
+      "score": 3333337,
+      "probability": "0.0030%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          0,
+          1,
+          2,
+          3,
+          5,
+          8,
+          13,
+          144
+        ],
+        "reject": [
+          4,
+          6,
+          7,
+          9,
+          10,
+          11,
+          100
+        ]
+      }
+    },
+    {
+      "id": "POWER_OF_TWO",
+      "label": "Power of Two",
+      "description": "A power of 2 (2ⁿ).",
+      "emoji": "💾",
+      "family": null,
+      "score": 5000005,
+      "probability": "0.0020%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32,
+          64,
+          128,
+          256,
+          512,
+          1024
+        ],
+        "reject": [
+          0,
+          3,
+          5,
+          6,
+          7,
+          9,
+          10,
+          100,
+          1000
+        ]
+      }
+    },
+    {
+      "id": "POWER_OF_THREE",
+      "label": "Power of Three",
+      "description": "A power of 3 (3ⁿ).",
+      "emoji": "🔺",
+      "family": null,
+      "score": 7692315,
+      "probability": "0.0013%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          1,
+          3,
+          9,
+          27,
+          81,
+          243,
+          729,
+          2187,
+          6561,
+          19683,
+          59049
+        ],
+        "reject": [
+          0,
+          2,
+          4,
+          5,
+          6,
+          10,
+          100,
+          1000
+        ]
+      }
+    },
+    {
+      "id": "FACTORIAL",
+      "label": "Factorial",
+      "description": "A factorial number (n!).",
+      "emoji": "❗",
+      "family": null,
+      "score": 11111122,
+      "probability": "0.0009%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          1,
+          2,
+          6,
+          24,
+          120,
+          720,
+          5040,
+          40320,
+          362880
+        ],
+        "reject": [
+          0,
+          3,
+          4,
+          5,
+          7,
+          25,
+          121,
+          1000
+        ]
+      }
+    },
+    {
+      "id": "HARSHAD",
+      "label": "Harshad Number",
+      "description": "Divisible by the sum of its own digits.",
+      "emoji": "🤝",
+      "family": null,
+      "score": 1048,
+      "probability": "9.5%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          1,
+          12,
+          18,
+          100,
+          102,
+          108
+        ],
+        "reject": [
+          0,
+          11,
+          13,
+          17,
+          101,
+          103
+        ]
+      }
+    },
+    {
+      "id": "SPY",
+      "label": "Spy Number",
+      "description": "The sum of its digits equals the product of its digits.",
+      "emoji": "🕵️",
+      "family": null,
+      "score": 1030929,
+      "probability": "0.0097%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          0,
+          22,
+          123,
+          132,
+          213,
+          312
+        ],
+        "reject": [
+          1,
+          2,
+          11,
+          23,
+          100,
+          999
+        ]
+      }
+    },
+    {
+      "id": "PRONIC",
+      "label": "Pronic Number",
+      "description": "The product of two consecutive integers (n * n+1).",
+      "emoji": "🧮",
+      "family": null,
+      "score": 100000,
+      "probability": "0.10%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          0,
+          2,
+          6,
+          12,
+          20,
+          30,
+          42
+        ],
+        "reject": [
+          1,
+          3,
+          5,
+          10,
+          15,
+          25,
+          100
+        ]
+      }
+    },
+    {
+      "id": "PAIR",
+      "label": "Pair",
+      "description": "Contains a pair of matching digits.",
+      "emoji": "👯",
+      "family": "PAIRS",
+      "score": 120,
+      "probability": "83.1%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          11,
+          121,
+          1223,
+          334,
+          1122,
+          11223,
+          3344,
+          111,
+          1111
+        ],
+        "reject": [
+          1,
+          12,
+          123,
+          1234,
+          12345,
+          123456
+        ]
+      }
+    },
+    {
+      "id": "CONTIGUOUS_PAIR",
+      "label": "Contiguous Pair",
+      "description": "Contains a contiguous pair of matching digits.",
+      "emoji": "🫂",
+      "family": "PAIRS",
+      "score": 249,
+      "probability": "40.2%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          11,
+          1123,
+          18827,
+          3445,
+          111,
+          1112
+        ],
+        "reject": [
+          121,
+          18287,
+          1,
+          123
+        ]
+      }
+    },
+    {
+      "id": "TWO_PAIR",
+      "label": "Two Pair",
+      "description": "Contains two distinct pairs of matching digits.",
+      "emoji": "👯‍♀️",
+      "family": "PAIRS",
+      "score": 447,
+      "probability": "22.4%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          1122,
+          112233,
+          1212,
+          334455
+        ],
+        "reject": [
+          11,
+          111,
+          123,
+          1112
+        ]
+      }
+    },
+    {
+      "id": "CONTIGUOUS_TWO_PAIR",
+      "label": "Contiguous Two Pair",
+      "description": "Contains two adjacent contiguous pairs.",
+      "emoji": "👨‍👩‍👧‍👦",
+      "family": "PAIRS",
+      "score": 6142,
+      "probability": "1.6%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          1122,
+          114455,
+          112233,
+          4499
+        ],
+        "reject": [
+          1212,
+          1221,
+          121221,
+          11,
+          111,
+          441599
+        ]
+      }
+    },
+    {
+      "id": "THREE_PAIR",
+      "label": "Three Pair",
+      "description": "Contains three distinct pairs of matching digits.",
+      "emoji": "👯‍♀️👯",
+      "family": "PAIRS",
+      "score": 10288,
+      "probability": "0.97%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          112233,
+          115335,
+          123123,
+          334455
+        ],
+        "reject": [
+          1122,
+          11,
+          111,
+          123,
+          1112,
+          111222
+        ]
+      }
+    },
+    {
+      "id": "CONTIGUOUS_THREE_PAIR",
+      "label": "Contiguous Three Pair",
+      "description": "Contains three adjacent contiguous pairs.",
+      "emoji": "👨‍👩‍👧‍👦👯",
+      "family": "PAIRS",
+      "score": 154321,
+      "probability": "0.06%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          112233,
+          114455,
+          335566
+        ],
+        "reject": [
+          115335,
+          123123,
+          1122,
+          11,
+          111,
+          1212
+        ]
+      }
+    },
+    {
+      "id": "TRIPS",
+      "label": "Three of a Kind",
+      "description": "Contains three identical digits.",
+      "emoji": "🎰",
+      "family": "OF_A_KIND",
+      "score": 724,
+      "probability": "13.8%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          111,
+          1112,
+          7773,
+          12211
+        ],
+        "reject": [
+          11,
+          1122,
+          12,
+          1234
+        ]
+      }
+    },
+    {
+      "id": "QUADS",
+      "label": "Four of a Kind",
+      "description": "Contains four identical digits.",
+      "emoji": "🍀",
+      "family": "OF_A_KIND",
+      "score": 8436,
+      "probability": "1.2%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          1111,
+          11112,
+          77779,
+          888889
+        ],
+        "reject": [
+          111,
+          1122,
+          11223,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "BOAT",
+      "label": "Full House",
+      "description": "Contains a set of three and a set of two.",
+      "emoji": "🏠",
+      "family": "BOAT",
+      "score": 2397,
+      "probability": "4.2%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          11222,
+          33322,
+          777755,
+          11122233
+        ],
+        "reject": [
+          111,
+          1122,
+          1234,
+          11111
+        ]
+      }
+    },
+    {
+      "id": "CONTIGUOUS_BOAT",
+      "label": "Contiguous Full House",
+      "description": "Contains a contiguous set of three adjacent to a contiguous set of two.",
+      "emoji": "🏰",
+      "family": "BOAT",
+      "score": 30111,
+      "probability": "0.33%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          11222,
+          844400,
+          333114,
+          888771,
+          22888,
+          88822,
+          88222,
+          22288,
+          222888
+        ],
+        "reject": [
+          840044,
+          11322,
+          1234,
+          111,
+          888177
+        ]
+      }
+    },
+    {
+      "id": "STRAIGHT",
+      "label": "Straight",
+      "description": "Contains a sequence of 5 consecutive digits (ascending or descending).",
+      "emoji": "📏",
+      "family": "STRAIGHT",
+      "score": 454546,
+      "probability": "0.02%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          12345,
+          23456,
+          56789,
+          123456,
+          98765,
+          65432,
+          198765,
+          54321
+        ],
+        "reject": [
+          1234,
+          12346,
+          13579
+        ]
+      }
+    },
+    {
+      "id": "FLUSH",
+      "label": "Flush",
+      "description": "All digits are either all even or all odd.",
+      "emoji": "🎨",
+      "family": null,
+      "score": 2845,
+      "probability": "3.5%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          0,
+          2,
+          24,
+          468,
+          1357,
+          9999
+        ],
+        "reject": [
+          12,
+          23,
+          123,
+          1234
+        ]
+      }
+    },
+    {
+      "id": "STRAIGHT_FLUSH",
+      "label": "Straight Flush",
+      "description": "Contains 5 consecutive same-parity digits (02468, 13579, or their reverse).",
+      "emoji": "🃏",
+      "family": "STRAIGHT",
+      "score": 1449277,
+      "probability": "0.0069%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          13579,
+          135790,
+          102468,
+          202468,
+          1135790,
+          97531,
+          86420,
+          197531
+        ],
+        "reject": [
+          12345,
+          23456,
+          56789,
+          1234,
+          2467,
+          1357,
+          2468
+        ]
+      }
+    },
+    {
+      "id": "ROYAL_FLUSH",
+      "label": "Royal Flush",
+      "description": "Contains 56789 — the highest possible straight.",
+      "emoji": "👑",
+      "family": "STRAIGHT",
+      "score": 5000005,
+      "probability": "0.0020%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          56789,
+          567890,
+          156789
+        ],
+        "reject": [
+          5678,
+          67890,
+          12345,
+          6789
+        ]
+      }
+    },
+    {
+      "id": "LOW_BALL",
+      "label": "Low Ball",
+      "description": "Contains only digits from 0 to 4.",
+      "emoji": "📉",
+      "family": null,
+      "score": 6400,
+      "probability": "1.6%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          0,
+          1,
+          12,
+          1234,
+          4444
+        ],
+        "reject": [
+          5,
+          15,
+          567,
+          9999
+        ]
+      }
+    },
+    {
+      "id": "HIGH_ROLLER",
+      "label": "High Roller",
+      "description": "Contains only digits from 5 to 9.",
+      "emoji": "🤑",
+      "family": null,
+      "score": 5120,
+      "probability": "2.0%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          5,
+          56,
+          789,
+          9999,
+          56789
+        ],
+        "reject": [
+          4,
+          45,
+          1234,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "SNAKE_EYES",
+      "label": "Snake Eyes",
+      "description": "Contains a single pair of ones and no other pairs.",
+      "emoji": "🎲",
+      "family": null,
+      "score": 2121,
+      "probability": "4.7%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          11,
+          110,
+          211,
+          3011
+        ],
+        "reject": [
+          1,
+          1122,
+          111,
+          1212,
+          1101,
+          12311,
+          11122,
+          112211,
+          211223
+        ]
+      }
+    },
+    {
+      "id": "LUCKY_7",
+      "label": "Lucky Seven",
+      "description": "Contains the number 7.",
+      "emoji": "7️⃣",
+      "family": null,
+      "score": 213,
+      "probability": "46.9%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          7,
+          17,
+          70,
+          777,
+          12378
+        ],
+        "reject": [
+          0,
+          1,
+          12,
+          123,
+          6890
+        ]
+      }
+    },
+    {
+      "id": "JACKPOT",
+      "label": "Jackpot",
+      "description": "Contains \"777\".",
+      "emoji": "💰",
+      "family": "JACKPOT",
+      "score": 27027,
+      "probability": "0.37%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          777,
+          7770,
+          1777,
+          77789,
+          123777
+        ],
+        "reject": [
+          7,
+          77,
+          7788,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "JACKPOT_EXACT",
+      "label": "Exact Jackpot",
+      "description": "Exactly \"777\".",
+      "emoji": "💰",
+      "family": "JACKPOT",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          777,
+          777,
+          777
+        ],
+        "reject": [
+          7770,
+          1777,
+          77,
+          7,
+          7777
+        ]
+      }
+    },
+    {
+      "id": "JACKPOT_FOUR",
+      "label": "Jackpot Four",
+      "description": "Contains four 7s in a row.",
+      "emoji": "💰💰",
+      "family": "JACKPOT",
+      "score": 357143,
+      "probability": "0.03%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          7777,
+          77770,
+          17777,
+          777789
+        ],
+        "reject": [
+          777,
+          7770,
+          7788,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "JACKPOT_FIVE",
+      "label": "Jackpot Five",
+      "description": "Contains five 7s in a row.",
+      "emoji": "💰💰💰",
+      "family": "JACKPOT",
+      "score": 5263163,
+      "probability": "0.0019%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          77777,
+          777770,
+          177777
+        ],
+        "reject": [
+          7777,
+          77770,
+          777,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "JACKPOT_SIX",
+      "label": "Jackpot Six",
+      "description": "Contains six 7s in a row.",
+      "emoji": "🏦",
+      "family": "JACKPOT",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          777777,
+          1777777,
+          7777770
+        ],
+        "reject": [
+          77777,
+          777770,
+          7777,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "BLACKJACK",
+      "label": "Blackjack",
+      "description": "Digits sum exactly to 21.",
+      "emoji": "♠️",
+      "family": null,
+      "score": 2521,
+      "probability": "4.0%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          993,
+          777,
+          966,
+          399,
+          489
+        ],
+        "reject": [
+          0,
+          999,
+          888,
+          7776,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "VERY_NICE",
+      "label": "Very Nice",
+      "description": "Contains \"6969\".",
+      "emoji": "🥵",
+      "family": "NICE",
+      "score": 334448,
+      "probability": "0.03%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          6969,
+          69690,
+          16969,
+          696969
+        ],
+        "reject": [
+          69,
+          696,
+          6996,
+          66999
+        ]
+      }
+    },
+    {
+      "id": "BOTANIST",
+      "label": "Botanist",
+      "description": "Contains \"420\".",
+      "emoji": "🌿",
+      "family": "BOTANIST",
+      "score": 25006,
+      "probability": "0.40%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          420,
+          4200,
+          1420,
+          42069
+        ],
+        "reject": [
+          42,
+          402,
+          421,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "BOTANIST_EXACT",
+      "label": "Exact Botanist",
+      "description": "Exactly \"420\".",
+      "emoji": "🌿",
+      "family": "BOTANIST",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          420,
+          420,
+          420
+        ],
+        "reject": [
+          4200,
+          1420,
+          42,
+          402,
+          421
+        ]
+      }
+    },
+    {
+      "id": "DEVIL",
+      "label": "Devil",
+      "description": "Contains \"666\".",
+      "emoji": "😈",
+      "family": "DEVIL",
+      "score": 27027,
+      "probability": "0.37%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          666,
+          6660,
+          1666,
+          66667
+        ],
+        "reject": [
+          66,
+          6,
+          667,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "DEVIL_EXACT",
+      "label": "Exact Devil",
+      "description": "Exactly \"666\".",
+      "emoji": "😈",
+      "family": "DEVIL",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          666,
+          666,
+          666
+        ],
+        "reject": [
+          6660,
+          1666,
+          66,
+          6,
+          6666
+        ]
+      }
+    },
+    {
+      "id": "LEET",
+      "label": "Leet",
+      "description": "Contains \"1337\".",
+      "emoji": "💻",
+      "family": "LEET",
+      "score": 333334,
+      "probability": "0.03%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          1337,
+          13370,
+          11337,
+          133700
+        ],
+        "reject": [
+          1,
+          13,
+          133,
+          1336,
+          1338
+        ]
+      }
+    },
+    {
+      "id": "LEET_EXACT",
+      "label": "Exact Leet",
+      "description": "Exactly \"1337\".",
+      "emoji": "💻",
+      "family": "LEET",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          1337,
+          1337,
+          1337
+        ],
+        "reject": [
+          13370,
+          11337,
+          133,
+          1336,
+          13377
+        ]
+      }
+    },
+    {
+      "id": "HELL",
+      "label": "Hell",
+      "description": "Contains \"7734\" (spells HELL upside-down).",
+      "emoji": "🔥",
+      "family": "HELL",
+      "score": 333334,
+      "probability": "0.03%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          7734,
+          77340,
+          17734,
+          773456
+        ],
+        "reject": [
+          773,
+          7730,
+          7735,
+          8008
+        ]
+      }
+    },
+    {
+      "id": "EXACT_HELL",
+      "label": "Exact Hell",
+      "description": "Exactly \"7734\".",
+      "emoji": "👹",
+      "family": "HELL",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          7734,
+          7734,
+          7734
+        ],
+        "reject": [
+          77340,
+          17734,
+          773456,
+          773,
+          7735
+        ]
+      }
+    },
+    {
+      "id": "BOOB_8008",
+      "label": "8008",
+      "description": "Contains \"8008\" (spells BOOB upside-down).",
+      "emoji": "🔢",
+      "family": "BOOB",
+      "score": 333334,
+      "probability": "0.03%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          8008,
+          80080,
+          18008,
+          80081,
+          58008,
+          80085
+        ],
+        "reject": [
+          800,
+          8000,
+          808,
+          7734,
+          8080
+        ]
+      }
+    },
+    {
+      "id": "BOOB_58008",
+      "label": "58008",
+      "description": "Contains \"58008\" (spells BOOBS upside-down).",
+      "emoji": "🔠",
+      "family": "BOOB",
+      "score": 5000005,
+      "probability": "0.0020%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          58008,
+          580081,
+          158008,
+          580080
+        ],
+        "reject": [
+          5800,
+          7734,
+          80085,
+          8080
+        ]
+      }
+    },
+    {
+      "id": "BOOB_80085",
+      "label": "80085",
+      "description": "Contains \"80085\" (spells BOOBS).",
+      "emoji": "🅱️",
+      "family": "BOOB",
+      "score": 5000005,
+      "probability": "0.0020%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          80085,
+          800850,
+          180085,
+          800851
+        ],
+        "reject": [
+          7734,
+          58008,
+          8085,
+          8008
+        ]
+      }
+    },
+    {
+      "id": "EXACT_BOOB",
+      "label": "Exact Boob",
+      "description": "Exactly \"8008\" or \"58008\".",
+      "emoji": "🍈",
+      "family": "BOOB",
+      "score": 50000050,
+      "probability": "0.0002%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          8008,
+          58008,
+          8008
+        ],
+        "reject": [
+          80080,
+          18008,
+          580081,
+          800,
+          8000,
+          5800,
+          80085
+        ]
+      }
+    },
+    {
+      "id": "EXACT_BOOB_80085",
+      "label": "Exact 80085",
+      "description": "Exactly \"80085\".",
+      "emoji": "💎",
+      "family": "BOOB",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          80085,
+          80085,
+          80085
+        ],
+        "reject": [
+          800850,
+          180085,
+          8008,
+          58008
+        ]
+      }
+    },
+    {
+      "id": "HELLO",
+      "label": "Hello",
+      "description": "Contains \"07734\" (spells HELLO upside-down).",
+      "emoji": "👋",
+      "family": null,
+      "score": 11111122,
+      "probability": "0.0009%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          107734,
+          207734,
+          1007734
+        ],
+        "reject": [
+          7734,
+          773,
+          7730,
+          7735,
+          17734,
+          8008
+        ]
+      }
+    },
+    {
+      "id": "MEANING",
+      "label": "Meaning of Life",
+      "description": "Contains \"42\".",
+      "emoji": "🌌",
+      "family": "BOTANIST",
+      "score": 2024,
+      "probability": "4.9%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          42,
+          420,
+          1420,
+          4242
+        ],
+        "reject": [
+          4,
+          24,
+          124,
+          4321
+        ]
+      }
+    },
+    {
+      "id": "MEANING_EXACT",
+      "label": "Exact Meaning",
+      "description": "Exactly \"42\".",
+      "emoji": "🌌",
+      "family": "BOTANIST",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          42,
+          42,
+          42
+        ],
+        "reject": [
+          420,
+          142,
+          4,
+          2,
+          421
+        ]
+      }
+    },
+    {
+      "id": "EMERGENCY",
+      "label": "Emergency",
+      "description": "Contains \"911\".",
+      "emoji": "🚑",
+      "family": "EMERGENCY",
+      "score": 25006,
+      "probability": "0.40%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          911,
+          9110,
+          1911,
+          91100
+        ],
+        "reject": [
+          91,
+          119,
+          912,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "EMERGENCY_EXACT",
+      "label": "Exact Emergency",
+      "description": "Exactly \"911\".",
+      "emoji": "🚑",
+      "family": "EMERGENCY",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          911,
+          911,
+          911
+        ],
+        "reject": [
+          9110,
+          1911,
+          91,
+          9,
+          9111
+        ]
+      }
+    },
+    {
+      "id": "ERROR",
+      "label": "Error 404",
+      "description": "Contains \"404\".",
+      "emoji": "🚫",
+      "family": null,
+      "score": 25132,
+      "probability": "0.40%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          404,
+          4040,
+          1404,
+          40404
+        ],
+        "reject": [
+          40,
+          44,
+          440,
+          4004
+        ]
+      }
+    },
+    {
+      "id": "VERY_VERY_NICE",
+      "label": "Very Very Nice",
+      "description": "Exactly \"696969\".",
+      "emoji": "😏",
+      "family": "NICE",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          696969,
+          696969,
+          696969
+        ],
+        "reject": [
+          69696,
+          6969690,
+          6969,
+          69
+        ]
+      }
+    },
+    {
+      "id": "HOTBOX",
+      "label": "Hotbox",
+      "description": "Exactly \"420420\".",
+      "emoji": "🌿",
+      "family": "BOTANIST",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          420420,
+          420420,
+          420420
+        ],
+        "reject": [
+          42042,
+          4204200,
+          420,
+          4200
+        ]
+      }
+    },
+    {
+      "id": "MAYDAY",
+      "label": "Mayday",
+      "description": "Exactly \"911911\".",
+      "emoji": "🚑",
+      "family": "EMERGENCY",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          911911,
+          911911,
+          911911
+        ],
+        "reject": [
+          91191,
+          9119110,
+          911,
+          9110
+        ]
+      }
+    },
+    {
+      "id": "DEEPER_MEANING",
+      "label": "Deeper Meaning",
+      "description": "Contains \"4242\".",
+      "emoji": "🌌",
+      "family": "MEANING",
+      "score": 334448,
+      "probability": "0.03%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          4242,
+          42420,
+          14242,
+          424242
+        ],
+        "reject": [
+          42,
+          420,
+          4224,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "UNIVERSAL_ANSWER",
+      "label": "Universal Answer",
+      "description": "Exactly \"424242\".",
+      "emoji": "🌌",
+      "family": "MEANING",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          424242,
+          424242,
+          424242
+        ],
+        "reject": [
+          42424,
+          4242420,
+          4242,
+          42
+        ]
+      }
+    },
+    {
+      "id": "SECRET_AGENT",
+      "label": "Secret Agent",
+      "description": "Contains \"007\".",
+      "emoji": "🕶️",
+      "family": null,
+      "score": 34614,
+      "probability": "0.29%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          10070,
+          200700,
+          500071,
+          100700
+        ],
+        "reject": [
+          7,
+          70,
+          700,
+          12345,
+          17
+        ]
+      }
+    },
+    {
+      "id": "BIG_BROTHER",
+      "label": "Big Brother",
+      "description": "Contains \"1984\".",
+      "emoji": "👁️",
+      "family": "BIG_BROTHER",
+      "score": 333334,
+      "probability": "0.03%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          1984,
+          19840,
+          119842,
+          198400
+        ],
+        "reject": [
+          198,
+          1894,
+          1985,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "BIG_BROTHER_EXACT",
+      "label": "Orwellian",
+      "description": "Exactly \"1984\".",
+      "emoji": "👁️",
+      "family": "BIG_BROTHER",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          1984,
+          1984,
+          1984
+        ],
+        "reject": [
+          19840,
+          119842,
+          198,
+          1985
+        ]
+      }
+    },
+    {
+      "id": "HYDROGEN",
+      "label": "Hydrogen (1)",
+      "description": "Contains exactly one \"1\".",
+      "emoji": "💧",
+      "family": null,
+      "score": 282,
+      "probability": "35.4%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          1,
+          10,
+          102,
+          2031,
+          56719
+        ],
+        "reject": [
+          0,
+          11,
+          111,
+          121,
+          1001
+        ]
+      }
+    },
+    {
+      "id": "HELIUM",
+      "label": "Helium (2)",
+      "description": "Contains exactly one \"2\".",
+      "emoji": "🎈",
+      "family": null,
+      "score": 282,
+      "probability": "35.4%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          2,
+          20,
+          123,
+          4205,
+          67829
+        ],
+        "reject": [
+          0,
+          22,
+          222,
+          2002,
+          12342
+        ]
+      }
+    },
+    {
+      "id": "CARBON",
+      "label": "Carbon (6)",
+      "description": "Contains exactly one \"6\".",
+      "emoji": "✏️",
+      "family": null,
+      "score": 282,
+      "probability": "35.4%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          6,
+          60,
+          16,
+          1234567,
+          689
+        ],
+        "reject": [
+          0,
+          66,
+          666,
+          6060,
+          1266
+        ]
+      }
+    },
+    {
+      "id": "OXYGEN",
+      "label": "Oxygen (8)",
+      "description": "Contains exactly one \"8\".",
+      "emoji": "💨",
+      "family": null,
+      "score": 282,
+      "probability": "35.4%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          8,
+          80,
+          18,
+          123456789,
+          56798
+        ],
+        "reject": [
+          0,
+          88,
+          888,
+          8080,
+          1288
+        ]
+      }
+    },
+    {
+      "id": "LITHIUM",
+      "label": "Lithium (3)",
+      "description": "Contains exactly one \"3\".",
+      "emoji": "🔋",
+      "family": null,
+      "score": 282,
+      "probability": "35.4%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          3,
+          30,
+          123,
+          4305,
+          67839
+        ],
+        "reject": [
+          0,
+          33,
+          333,
+          3003,
+          12343
+        ]
+      }
+    },
+    {
+      "id": "BERYLLIUM",
+      "label": "Beryllium (4)",
+      "description": "Contains exactly one \"4\".",
+      "emoji": "💎",
+      "family": null,
+      "score": 282,
+      "probability": "35.4%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          4,
+          40,
+          124,
+          5406,
+          67849
+        ],
+        "reject": [
+          0,
+          44,
+          444,
+          4004,
+          12344
+        ]
+      }
+    },
+    {
+      "id": "BORON",
+      "label": "Boron (5)",
+      "description": "Contains exactly one \"5\".",
+      "emoji": "🧼",
+      "family": null,
+      "score": 282,
+      "probability": "35.4%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          5,
+          50,
+          125,
+          6507,
+          67859
+        ],
+        "reject": [
+          0,
+          55,
+          555,
+          5005,
+          123455
+        ]
+      }
+    },
+    {
+      "id": "NITROGEN",
+      "label": "Nitrogen (7)",
+      "description": "Contains exactly one \"7\".",
+      "emoji": "❄️",
+      "family": null,
+      "score": 282,
+      "probability": "35.4%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          7,
+          70,
+          127,
+          8709,
+          56789
+        ],
+        "reject": [
+          0,
+          77,
+          777,
+          7007,
+          12377
+        ]
+      }
+    },
+    {
+      "id": "FLUORINE",
+      "label": "Fluorine (9)",
+      "description": "Contains exactly one \"9\".",
+      "emoji": "🦷",
+      "family": null,
+      "score": 282,
+      "probability": "35.4%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          9,
+          90,
+          129,
+          1089,
+          567890
+        ],
+        "reject": [
+          0,
+          99,
+          999,
+          9009,
+          12399
+        ]
+      }
+    },
+    {
+      "id": "GHOST",
+      "label": "Ghost",
+      "description": "Contains exactly one \"0\".",
+      "emoji": "👻",
+      "family": null,
+      "score": 309,
+      "probability": "32.4%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          0,
+          10,
+          102,
+          2031,
+          567809
+        ],
+        "reject": [
+          1,
+          100,
+          1000,
+          10001,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "DEEP_VOID",
+      "label": "Deep Void",
+      "description": "Contains \"00\".",
+      "emoji": "🕳️",
+      "family": "VOID_DEPTH",
+      "score": 2784,
+      "probability": "3.6%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          100,
+          1000,
+          10001,
+          12300
+        ],
+        "reject": [
+          0,
+          10,
+          101,
+          1010,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "DEEP_VOID_THREE",
+      "label": "Deep Void (3)",
+      "description": "Contains \"000\".",
+      "emoji": "🌑",
+      "family": "VOID_DEPTH",
+      "score": 37023,
+      "probability": "0.27%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          1000,
+          10000,
+          10001,
+          123000
+        ],
+        "reject": [
+          100,
+          200,
+          1001,
+          10010,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "DEEP_VOID_FOUR",
+      "label": "Deep Void (4)",
+      "description": "Contains \"0000\".",
+      "emoji": "🌌",
+      "family": "VOID_DEPTH",
+      "score": 552487,
+      "probability": "0.02%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          10000,
+          100000,
+          10000,
+          120000
+        ],
+        "reject": [
+          1000,
+          2000,
+          10001,
+          100010,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "DEEP_VOID_FIVE",
+      "label": "Deep Void (5)",
+      "description": "Contains \"00000\".",
+      "emoji": "⚫",
+      "family": "VOID_DEPTH",
+      "score": 10000010,
+      "probability": "0.0010%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          100000,
+          1000000,
+          100000,
+          1200000
+        ],
+        "reject": [
+          10000,
+          20000,
+          100001,
+          1000010,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "SEQUENCE_3",
+      "label": "Sequence (3)",
+      "description": "Contains a sequence of 3 consecutive digits.",
+      "emoji": "🔢",
+      "family": "PROGRESSION",
+      "score": 1716,
+      "probability": "5.8%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          123,
+          321,
+          456,
+          654,
+          12345
+        ],
+        "reject": [
+          12,
+          13,
+          135,
+          1357,
+          2468
+        ]
+      }
+    },
+    {
+      "id": "SEQUENCE_4",
+      "label": "Sequence (4)",
+      "description": "Contains a sequence of 4 consecutive digits.",
+      "emoji": "🔢",
+      "family": "PROGRESSION",
+      "score": 25907,
+      "probability": "0.39%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          1234,
+          4321,
+          5678,
+          8765,
+          123456
+        ],
+        "reject": [
+          123,
+          321,
+          135,
+          1357,
+          2468
+        ]
+      }
+    },
+    {
+      "id": "SEQUENCE_6",
+      "label": "Sequence (6)",
+      "description": "Contains a sequence of 6 consecutive digits.",
+      "emoji": "🔢",
+      "family": "PROGRESSION",
+      "score": 11111122,
+      "probability": "0.0009%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          123456,
+          654321,
+          234567,
+          765432
+        ],
+        "reject": [
+          12345,
+          54321,
+          135,
+          1357,
+          2468
+        ]
+      }
+    },
+    {
+      "id": "SCRAMBLE",
+      "label": "Scramble",
+      "description": "All digits form a consecutive sequence when sorted.",
+      "emoji": "🔀",
+      "family": "PROGRESSION",
+      "score": 22722,
+      "probability": "0.44%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          21,
+          89,
+          132,
+          213,
+          8967,
+          613254
+        ],
+        "reject": [
+          1,
+          11,
+          13,
+          124,
+          135,
+          1123
+        ]
+      }
+    },
+    {
+      "id": "NEIGHBORS",
+      "label": "Neighbors",
+      "description": "Contains two digits that are adjacent in value.",
+      "emoji": "🏘️",
+      "family": null,
+      "score": 161,
+      "probability": "62.1%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          12,
+          23,
+          34,
+          89,
+          456
+        ],
+        "reject": [
+          0,
+          1,
+          13,
+          24,
+          35
+        ]
+      }
+    },
+    {
+      "id": "GAP_ONE",
+      "label": "Gap One",
+      "description": "The first and last digits differ by exactly 1.",
+      "emoji": "↕️",
+      "family": null,
+      "score": 529,
+      "probability": "18.9%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          12,
+          21,
+          23,
+          78,
+          819
+        ],
+        "reject": [
+          0,
+          1,
+          13,
+          22,
+          84
+        ]
+      }
+    },
+    {
+      "id": "ONE_DIGIT",
+      "label": "Single Digit",
+      "description": "Has exactly one digit.",
+      "emoji": "☝️",
+      "family": "SINGLE_DIGIT",
+      "score": 10000010,
+      "probability": "0.0010%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          0,
+          1,
+          5,
+          9
+        ],
+        "reject": [
+          10,
+          12,
+          123,
+          1234
+        ]
+      }
+    },
+    {
+      "id": "DIGIT_ZERO",
+      "label": "Zero",
+      "description": "The number zero.",
+      "emoji": "0️⃣",
+      "family": "SINGLE_DIGIT",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          0,
+          0,
+          0
+        ],
+        "reject": [
+          1,
+          10,
+          100
+        ]
+      }
+    },
+    {
+      "id": "DIGIT_ONE",
+      "label": "One",
+      "description": "The number one.",
+      "emoji": "1️⃣",
+      "family": "SINGLE_DIGIT",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          1,
+          1,
+          1
+        ],
+        "reject": [
+          0,
+          11,
+          100
+        ]
+      }
+    },
+    {
+      "id": "DIGIT_TWO",
+      "label": "Two",
+      "description": "The number two.",
+      "emoji": "2️⃣",
+      "family": "SINGLE_DIGIT",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          2,
+          2,
+          2
+        ],
+        "reject": [
+          1,
+          22,
+          200
+        ]
+      }
+    },
+    {
+      "id": "DIGIT_THREE",
+      "label": "Three",
+      "description": "The number three.",
+      "emoji": "3️⃣",
+      "family": "SINGLE_DIGIT",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          3,
+          3,
+          3
+        ],
+        "reject": [
+          2,
+          33,
+          300
+        ]
+      }
+    },
+    {
+      "id": "DIGIT_FOUR",
+      "label": "Four",
+      "description": "The number four.",
+      "emoji": "4️⃣",
+      "family": "SINGLE_DIGIT",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          4,
+          4,
+          4
+        ],
+        "reject": [
+          3,
+          44,
+          400
+        ]
+      }
+    },
+    {
+      "id": "DIGIT_FIVE",
+      "label": "Five",
+      "description": "The number five.",
+      "emoji": "5️⃣",
+      "family": "SINGLE_DIGIT",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          5,
+          5,
+          5
+        ],
+        "reject": [
+          4,
+          55,
+          500
+        ]
+      }
+    },
+    {
+      "id": "DIGIT_SIX",
+      "label": "Six",
+      "description": "The number six.",
+      "emoji": "6️⃣",
+      "family": "SINGLE_DIGIT",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          6,
+          6,
+          6
+        ],
+        "reject": [
+          5,
+          66,
+          600
+        ]
+      }
+    },
+    {
+      "id": "DIGIT_SEVEN",
+      "label": "Seven",
+      "description": "The number seven.",
+      "emoji": "7️⃣",
+      "family": "SINGLE_DIGIT",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          7,
+          7,
+          7
+        ],
+        "reject": [
+          6,
+          77,
+          700
+        ]
+      }
+    },
+    {
+      "id": "DIGIT_EIGHT",
+      "label": "Eight",
+      "description": "The number eight.",
+      "emoji": "8️⃣",
+      "family": "SINGLE_DIGIT",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          8,
+          8,
+          8
+        ],
+        "reject": [
+          7,
+          88,
+          800
+        ]
+      }
+    },
+    {
+      "id": "DIGIT_NINE",
+      "label": "Nine",
+      "description": "The number nine.",
+      "emoji": "9️⃣",
+      "family": "SINGLE_DIGIT",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          9,
+          9,
+          9
+        ],
+        "reject": [
+          8,
+          99,
+          900
+        ]
+      }
+    },
+    {
+      "id": "TWO_DIGITS",
+      "label": "Two Digits",
+      "description": "Has exactly two digits.",
+      "emoji": "✌️",
+      "family": null,
+      "score": 1111112,
+      "probability": "0.0090%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          10,
+          12,
+          99,
+          42
+        ],
+        "reject": [
+          1,
+          123,
+          1234,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "THREE_DIGITS",
+      "label": "Three Digits",
+      "description": "Has exactly three digits.",
+      "emoji": "🤟",
+      "family": null,
+      "score": 111111,
+      "probability": "0.09%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          100,
+          123,
+          999,
+          420
+        ],
+        "reject": [
+          12,
+          1234,
+          12345,
+          1
+        ]
+      }
+    },
+    {
+      "id": "FOUR_DIGITS",
+      "label": "Four Digits",
+      "description": "Has exactly four digits.",
+      "emoji": "🍀",
+      "family": null,
+      "score": 11111,
+      "probability": "0.90%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          1000,
+          1245,
+          9999,
+          4200
+        ],
+        "reject": [
+          123,
+          12345,
+          123456,
+          1
+        ]
+      }
+    },
+    {
+      "id": "FIVE_DIGITS",
+      "label": "Five Digits",
+      "description": "Has exactly five digits.",
+      "emoji": "🖐️",
+      "family": null,
+      "score": 1111,
+      "probability": "9.0%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          10000,
+          12345,
+          99999,
+          42069
+        ],
+        "reject": [
+          1234,
+          123456,
+          1,
+          12
+        ]
+      }
+    },
+    {
+      "id": "SIX_DIGITS",
+      "label": "Six Digits",
+      "description": "Has exactly six digits.",
+      "emoji": "🐝",
+      "family": null,
+      "score": 111,
+      "probability": "90.0%",
+      "badgeRarity": "common",
+      "tests": {
+        "match": [
+          100000,
+          192938,
+          999999,
+          123456
+        ],
+        "reject": [
+          12345,
+          1234,
+          123,
+          12
+        ]
+      }
+    },
+    {
+      "id": "DOUBLE_NINE",
+      "label": "Double Nine",
+      "description": "Ends in 99.",
+      "emoji": "🎈",
+      "family": "NINE_ENDING",
+      "score": 10000,
+      "probability": "1.00%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          99,
+          199,
+          299,
+          1099,
+          123499
+        ],
+        "reject": [
+          9,
+          98,
+          100,
+          989,
+          12349
+        ]
+      }
+    },
+    {
+      "id": "TRIPLE_NINE",
+      "label": "Triple Nine",
+      "description": "Ends in 999.",
+      "emoji": "🎉",
+      "family": "NINE_ENDING",
+      "score": 100000,
+      "probability": "0.10%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          999,
+          1999,
+          2999,
+          10999,
+          123999
+        ],
+        "reject": [
+          99,
+          989,
+          1000,
+          9899,
+          12399
+        ]
+      }
+    },
+    {
+      "id": "QUAD_NINE",
+      "label": "Quad Nine",
+      "description": "Ends in 9999.",
+      "emoji": "🎊",
+      "family": "NINE_ENDING",
+      "score": 1000001,
+      "probability": "0.0100%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          9999,
+          19999,
+          29999,
+          109999,
+          1239999
+        ],
+        "reject": [
+          999,
+          9899,
+          10000,
+          98999,
+          123999
+        ]
+      }
+    },
+    {
+      "id": "QUINT_NINE",
+      "label": "Quint Nine",
+      "description": "Ends in 99999.",
+      "emoji": "🥳",
+      "family": "NINE_ENDING",
+      "score": 10000010,
+      "probability": "0.0010%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          99999,
+          199999,
+          299999,
+          1099999,
+          12399999
+        ],
+        "reject": [
+          9999,
+          98999,
+          100000,
+          989999,
+          1239999
+        ]
+      }
+    },
+    {
+      "id": "EVEN_SPACING",
+      "label": "Even Spacing",
+      "description": "All digits are evenly spaced in an arithmetic sequence.",
+      "emoji": "📏",
+      "family": "PROGRESSION",
+      "score": 862070,
+      "probability": "0.01%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          1234,
+          2468,
+          1357,
+          369
+        ],
+        "reject": [
+          1245,
+          1236,
+          3696,
+          12
+        ]
+      }
+    },
+    {
+      "id": "EVEN_SPACING_ABS",
+      "label": "Even Spacing (Absolute)",
+      "description": "All digits have the same absolute spacing (e.g., ±2 each time).",
+      "emoji": "📐",
+      "family": "PROGRESSION",
+      "score": 90992,
+      "probability": "0.11%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          1357,
+          135797,
+          7531,
+          2468,
+          8642
+        ],
+        "reject": [
+          1245,
+          1236,
+          12456,
+          12
+        ]
+      }
+    },
+    {
+      "id": "MIRROR_BOOKENDS",
+      "label": "Mirror Bookends",
+      "description": "First two digits are reversed as the last two.",
+      "emoji": "📖",
+      "family": "BOOKENDS",
+      "score": 10010,
+      "probability": "1.00%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          1221,
+          129821,
+          345543,
+          678876
+        ],
+        "reject": [
+          129812,
+          1234,
+          123,
+          12
+        ]
+      }
+    },
+    {
+      "id": "PAIRED_BOOKENDS",
+      "label": "Paired Bookends",
+      "description": "Starts with a pair and ends with a different pair.",
+      "emoji": "👐",
+      "family": "BOOKENDS",
+      "score": 11122,
+      "probability": "0.90%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          1144,
+          779044,
+          223355,
+          998877
+        ],
+        "reject": [
+          1234,
+          1111,
+          123,
+          12
+        ]
+      }
+    },
+    {
+      "id": "DIVISIBLE_BY_THREE",
+      "label": "Divisible by Three",
+      "description": "Every digit is divisible by 3.",
+      "emoji": "🔺",
+      "family": null,
+      "score": 24414,
+      "probability": "0.41%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          0,
+          3,
+          6,
+          9,
+          33,
+          369,
+          33639,
+          666,
+          9000
+        ],
+        "reject": [
+          1,
+          2,
+          13,
+          123,
+          3336391
+        ]
+      }
+    },
+    {
+      "id": "BALANCED",
+      "label": "Balanced",
+      "description": "Sum of first half of digits equals sum of second half.",
+      "emoji": "⚖️",
+      "family": null,
+      "score": 1959,
+      "probability": "5.1%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          1111,
+          1230,
+          1212,
+          99,
+          5005,
+          123033
+        ],
+        "reject": [
+          12,
+          123,
+          1234,
+          2468,
+          123456,
+          5500
+        ]
+      }
+    },
+    {
+      "id": "STROBOGRAMMATIC",
+      "label": "Strobogrammatic",
+      "description": "Looks the same when rotated 180 degrees.",
+      "emoji": "🙃",
+      "family": null,
+      "score": 502513,
+      "probability": "0.02%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          0,
+          1,
+          8,
+          11,
+          69,
+          88,
+          96,
+          101,
+          609,
+          818,
+          906,
+          1001,
+          6009
+        ],
+        "reject": [
+          2,
+          3,
+          4,
+          5,
+          7,
+          10,
+          12,
+          67,
+          89,
+          100
+        ]
+      }
+    },
+    {
+      "id": "PI_CONTAINS_3",
+      "label": "Pi Slice (3)",
+      "description": "Contains \"314\".",
+      "emoji": "🥧",
+      "family": "PI",
+      "score": 25006,
+      "probability": "0.40%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          314,
+          3145,
+          1314,
+          31415,
+          314159,
+          13140
+        ],
+        "reject": [
+          31,
+          341,
+          134,
+          12345,
+          3041
+        ]
+      }
+    },
+    {
+      "id": "PI_CONTAINS_4",
+      "label": "Pi Slice (4)",
+      "description": "Contains \"3141\".",
+      "emoji": "🥧",
+      "family": "PI",
+      "score": 333334,
+      "probability": "0.03%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          3141,
+          31415,
+          314159,
+          13141,
+          31410
+        ],
+        "reject": [
+          314,
+          3142,
+          3140,
+          1314
+        ]
+      }
+    },
+    {
+      "id": "PI_CONTAINS_5",
+      "label": "Pi Slice (5)",
+      "description": "Contains \"31415\".",
+      "emoji": "🥧",
+      "family": "PI",
+      "score": 5000005,
+      "probability": "0.0020%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          31415,
+          314159,
+          131415,
+          314150
+        ],
+        "reject": [
+          3141,
+          31416,
+          31414
+        ]
+      }
+    },
+    {
+      "id": "PI",
+      "label": "Pi",
+      "description": "Exactly π (314, 3141, 31415, or 314159).",
+      "emoji": "🥧",
+      "family": "PI",
+      "score": 25000025,
+      "probability": "0.0004%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          314,
+          3141,
+          31415,
+          314159
+        ],
+        "reject": [
+          313,
+          3140,
+          31414,
+          3141592,
+          31416,
+          1314
+        ]
+      }
+    },
+    {
+      "id": "E_CONTAINS_3",
+      "label": "E Slice (3)",
+      "description": "Contains \"271\".",
+      "emoji": "📈",
+      "family": "E",
+      "score": 25006,
+      "probability": "0.40%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          271,
+          2718,
+          27182,
+          271828,
+          1271,
+          2710
+        ],
+        "reject": [
+          27,
+          272,
+          270,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "E_CONTAINS_4",
+      "label": "E Slice (4)",
+      "description": "Contains \"2718\".",
+      "emoji": "📈",
+      "family": "E",
+      "score": 333334,
+      "probability": "0.03%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          2718,
+          27182,
+          271828,
+          12718,
+          27180
+        ],
+        "reject": [
+          271,
+          2717,
+          2719,
+          1271
+        ]
+      }
+    },
+    {
+      "id": "E_CONTAINS_5",
+      "label": "E Slice (5)",
+      "description": "Contains \"27182\".",
+      "emoji": "📈",
+      "family": "E",
+      "score": 5000005,
+      "probability": "0.0020%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          27182,
+          271828,
+          127182,
+          271820
+        ],
+        "reject": [
+          2718,
+          27181,
+          27183
+        ]
+      }
+    },
+    {
+      "id": "E",
+      "label": "Euler's Number",
+      "description": "The number e (271, 2718, 27182, or 271828).",
+      "emoji": "📈",
+      "family": "E",
+      "score": 25000025,
+      "probability": "0.0004%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          271,
+          2718,
+          27182,
+          271828
+        ],
+        "reject": [
+          270,
+          2717,
+          27181,
+          2718281,
+          27183
+        ]
+      }
+    },
+    {
+      "id": "SEMI_CENTURY",
+      "label": "Semi-Century",
+      "description": "Ends in \"50\".",
+      "emoji": "🗓️",
+      "family": null,
+      "score": 10000,
+      "probability": "1.00%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          50,
+          150,
+          250,
+          1050,
+          12350
+        ],
+        "reject": [
+          5,
+          500,
+          51,
+          15,
+          105
+        ]
+      }
+    },
+    {
+      "id": "SEMI_MILLENNIUM",
+      "label": "Semi-Millennium",
+      "description": "Ends in \"500\".",
+      "emoji": "📜",
+      "family": null,
+      "score": 100000,
+      "probability": "0.10%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          500,
+          1500,
+          2500,
+          10500,
+          123500
+        ],
+        "reject": [
+          50,
+          5000,
+          501,
+          150,
+          1050
+        ]
+      }
+    },
+    {
+      "id": "SEMI_EPOCH",
+      "label": "Semi-Epoch",
+      "description": "Ends in \"5000\".",
+      "emoji": "🗿",
+      "family": null,
+      "score": 1000001,
+      "probability": "0.0100%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          5000,
+          15000,
+          25000,
+          105000,
+          125000
+        ],
+        "reject": [
+          500,
+          50000,
+          5001,
+          1500,
+          10500
+        ]
+      }
+    },
+    {
+      "id": "TREE_FIDDY",
+      "label": "Tree Fiddy",
+      "description": "Contains \"350\" (the Loch Ness Monster's request).",
+      "emoji": "🦕",
+      "family": "TREE_FIDDY",
+      "score": 25006,
+      "probability": "0.40%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          350,
+          3500,
+          1350,
+          35000,
+          123504
+        ],
+        "reject": [
+          35,
+          305,
+          351,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "TREE_FIDDY_EXACT",
+      "label": "Exact Tree Fiddy",
+      "description": "Exactly \"350\".",
+      "emoji": "🦕",
+      "family": "TREE_FIDDY",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          350,
+          350,
+          350
+        ],
+        "reject": [
+          3500,
+          1350,
+          35,
+          3501
+        ]
+      }
+    },
+    {
+      "id": "SIXTY_SEVEN",
+      "label": "Six-Seven",
+      "description": "Contains \"67\".",
+      "emoji": "🫠",
+      "family": "SIXTY_SEVEN",
+      "score": 2024,
+      "probability": "4.9%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          67,
+          167,
+          670,
+          6700,
+          12367
+        ],
+        "reject": [
+          6,
+          7,
+          76,
+          78,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "SIXTY_SEVEN_EXACT",
+      "label": "Exact Six-Seven",
+      "description": "Exactly \"67\".",
+      "emoji": "🫠",
+      "family": "SIXTY_SEVEN",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          67,
+          67,
+          67
+        ],
+        "reject": [
+          670,
+          167,
+          6,
+          7,
+          677
+        ]
+      }
+    },
+    {
+      "id": "EIGHTY_SIX",
+      "label": "Eighty-Six",
+      "description": "Contains \"86\" (restaurant slang for \"out of\").",
+      "emoji": "🍽️",
+      "family": "EIGHTY_SIX",
+      "score": 2024,
+      "probability": "4.9%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          86,
+          186,
+          860,
+          8600,
+          12386
+        ],
+        "reject": [
+          8,
+          6,
+          68,
+          87,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "EIGHTY_SIX_EXACT",
+      "label": "Exact Eighty-Six",
+      "description": "Exactly \"86\".",
+      "emoji": "🍽️",
+      "family": "EIGHTY_SIX",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          86,
+          86,
+          86
+        ],
+        "reject": [
+          860,
+          186,
+          8,
+          6,
+          866
+        ]
+      }
+    },
+    {
+      "id": "ORIENTATION",
+      "label": "Orientation",
+      "description": "Contains \"101\" (intro course number).",
+      "emoji": "🧭",
+      "family": "ORIENTATION",
+      "score": 25132,
+      "probability": "0.40%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          101,
+          1010,
+          1101,
+          10100,
+          12101
+        ],
+        "reject": [
+          10,
+          11,
+          110,
+          1001,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "ORIENTATION_EXACT",
+      "label": "Exact Orientation",
+      "description": "Exactly \"101\".",
+      "emoji": "🧭",
+      "family": "ORIENTATION",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          101,
+          101,
+          101
+        ],
+        "reject": [
+          1010,
+          1101,
+          10,
+          11,
+          1001
+        ]
+      }
+    },
+    {
+      "id": "CALENDAR",
+      "label": "Calendar",
+      "description": "Contains \"365\" (days in a year).",
+      "emoji": "📅",
+      "family": "CALENDAR",
+      "score": 25006,
+      "probability": "0.40%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          365,
+          3650,
+          1365,
+          36500,
+          12365
+        ],
+        "reject": [
+          36,
+          356,
+          366,
+          364,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "CALENDAR_EXACT",
+      "label": "Exact Calendar",
+      "description": "Exactly \"365\".",
+      "emoji": "📅",
+      "family": "CALENDAR",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          365,
+          365,
+          365
+        ],
+        "reject": [
+          3650,
+          1365,
+          36,
+          356,
+          364
+        ]
+      }
+    },
+    {
+      "id": "SIXTY_SEVEN_DOUBLE",
+      "label": "6767",
+      "description": "Contains \"6767\".",
+      "emoji": "🫠",
+      "family": "SIXTY_SEVEN",
+      "score": 334448,
+      "probability": "0.03%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          6767,
+          67670,
+          16767,
+          676700
+        ],
+        "reject": [
+          67,
+          676,
+          6776,
+          12345
+        ]
+      }
+    },
+    {
+      "id": "BRAINROT",
+      "label": "Brainrot",
+      "description": "Exactly \"676767\".",
+      "emoji": "🫠",
+      "family": "SIXTY_SEVEN",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          676767,
+          676767,
+          676767
+        ],
+        "reject": [
+          67676,
+          6767670,
+          6767,
+          67
+        ]
+      }
+    },
+    {
+      "id": "GROUNDHOG_DAY",
+      "label": "Groundhog Day",
+      "description": "Exactly \"365365\".",
+      "emoji": "📅",
+      "family": "CALENDAR",
+      "score": 100000100,
+      "probability": "1.00e-4%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          365365,
+          365365,
+          365365
+        ],
+        "reject": [
+          36536,
+          3653650,
+          365,
+          3650
+        ]
+      }
+    },
+    {
+      "id": "COLOSSAL",
+      "label": "Colossal",
+      "description": "A number greater than 999,000.",
+      "emoji": "🪨",
+      "family": null,
+      "score": 100000,
+      "probability": "0.10%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          999001,
+          999500,
+          999999,
+          999900
+        ],
+        "reject": [
+          999000,
+          998999,
+          100000,
+          500000
+        ]
+      }
+    },
+    {
+      "id": "CONSEC_QUAD_EXACT",
+      "label": "4 Consecutive Numbers",
+      "description": "The entire number splits into four consecutive integers in order.",
+      "emoji": "⛓️",
+      "family": "CONSECUTIVE",
+      "score": 25000025,
+      "probability": "0.0004%",
+      "badgeRarity": "mythic",
+      "tests": {
+        "match": [
+          78910,
+          891011,
+          111098
+        ],
+        "reject": [
+          1234,
+          5960,
+          810911
+        ]
+      }
+    },
+    {
+      "id": "CONSEC_QUAD_SCRAMBLED",
+      "label": "4 Consecutive Numbers (Scrambled)",
+      "description": "The entire number splits into four consecutive integers, but not in order.",
+      "emoji": "🔀",
+      "family": "CONSECUTIVE",
+      "score": 2272730,
+      "probability": "0.0044%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          810911,
+          108911,
+          911108
+        ],
+        "reject": [
+          891011,
+          111098,
+          1234
+        ]
+      }
+    },
+    {
+      "id": "CONSEC_QUAD_CONTAINS",
+      "label": "4 Consecutive Numbers (Contains)",
+      "description": "Contains four adjacent consecutive integers.",
+      "emoji": "🔗",
+      "family": "CONSECUTIVE",
+      "score": 2631582,
+      "probability": "0.0038%",
+      "badgeRarity": "anomaly",
+      "tests": {
+        "match": [
+          178910,
+          278910,
+          109870
+        ],
+        "reject": [
+          891011,
+          78910,
+          5960
+        ]
+      }
+    },
+    {
+      "id": "CONSEC_TRIPLE_EXACT",
+      "label": "3 Consecutive Numbers",
+      "description": "The entire number splits into three consecutive integers in order.",
+      "emoji": "⛓️",
+      "family": "CONSECUTIVE",
+      "score": 555556,
+      "probability": "0.02%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          596061,
+          222120,
+          8910,
+          91011
+        ],
+        "reject": [
+          5960,
+          605961,
+          123,
+          321
+        ]
+      }
+    },
+    {
+      "id": "CONSEC_TRIPLE_SCRAMBLED",
+      "label": "3 Consecutive Numbers (Scrambled)",
+      "description": "The entire number splits into three consecutive integers, but not in order.",
+      "emoji": "🔀",
+      "family": "CONSECUTIVE",
+      "score": 277778,
+      "probability": "0.04%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          605961,
+          615960,
+          606159
+        ],
+        "reject": [
+          596061,
+          222120,
+          5960
+        ]
+      }
+    },
+    {
+      "id": "CONSEC_TRIPLE_CONTAINS",
+      "label": "3 Consecutive Numbers (Contains)",
+      "description": "Contains three adjacent consecutive integers.",
+      "emoji": "🔗",
+      "family": "CONSECUTIVE",
+      "score": 157978,
+      "probability": "0.06%",
+      "badgeRarity": "epic",
+      "tests": {
+        "match": [
+          189100,
+          891000,
+          189101
+        ],
+        "reject": [
+          596061,
+          8910,
+          75960
+        ]
+      }
+    },
+    {
+      "id": "CONSEC_PAIR_EXACT",
+      "label": "2 Consecutive Numbers",
+      "description": "The entire number splits into two consecutive integers.",
+      "emoji": "🔗",
+      "family": "CONSECUTIVE",
+      "score": 50505,
+      "probability": "0.20%",
+      "badgeRarity": "rare",
+      "tests": {
+        "match": [
+          5960,
+          6059,
+          541542,
+          910,
+          1011,
+          99100,
+          100101
+        ],
+        "reject": [
+          12,
+          1234,
+          5961,
+          123,
+          100200
+        ]
+      }
+    },
+    {
+      "id": "CONSEC_PAIR_ADJACENT",
+      "label": "2 Consecutive Numbers (Contains)",
+      "description": "Contains two adjacent substrings that are consecutive integers.",
+      "emoji": "🔗",
+      "family": "CONSECUTIVE",
+      "score": 1659,
+      "probability": "6.0%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          75960,
+          759601,
+          159600
+        ],
+        "reject": [
+          5960,
+          6059,
+          12,
+          759060
+        ]
+      }
+    },
+    {
+      "id": "CONSEC_PAIR_NEARBY",
+      "label": "2 Consecutive Numbers (Nearby)",
+      "description": "Contains two non-adjacent substrings that are consecutive integers.",
+      "emoji": "🔗",
+      "family": "CONSECUTIVE",
+      "score": 1575,
+      "probability": "6.3%",
+      "badgeRarity": "uncommon",
+      "tests": {
+        "match": [
+          759060,
+          310430,
+          590060
+        ],
+        "reject": [
+          5960,
+          75960,
+          12,
+          123
+        ]
+      }
+    }
+  ]
+}
