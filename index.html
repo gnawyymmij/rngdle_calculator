@@ -7,29 +7,34 @@
   <style>
     :root {
       color-scheme: light dark;
-      --bg: #f5f3ee;
+      --bg: #f7f7f8;
       --panel: #ffffff;
-      --panel-2: #eef5f2;
-      --ink: #171717;
-      --muted: #646464;
-      --line: #d6d0c5;
-      --accent: #116a65;
-      --accent-2: #9d3f2f;
-      --gold: #b78418;
-      --shadow: 0 18px 50px rgba(34, 29, 21, 0.12);
+      --panel-2: #f4f4f5;
+      --ink: #18181b;
+      --muted: #71717a;
+      --line: #e4e4e7;
+      --accent: #2563eb;
+      --accent-2: #ea580c;
+      --trash: #c8a87c;
+      --common: #6b7280;
+      --uncommon: #059669;
+      --rare: #2563eb;
+      --epic: #7c3aed;
+      --anomaly: #ea580c;
+      --mythic: #db2777;
+      --shadow: 0 14px 36px rgba(24, 24, 27, 0.08);
     }
 
     @media (prefers-color-scheme: dark) {
       :root {
-        --bg: #151714;
-        --panel: #20231f;
-        --panel-2: #1a2926;
-        --ink: #f3f1ea;
-        --muted: #aaa49a;
-        --line: #383b34;
-        --accent: #5cc6b8;
-        --accent-2: #dd806c;
-        --gold: #e0b24b;
+        --bg: #09090b;
+        --panel: #18181b;
+        --panel-2: #27272a;
+        --ink: #fafafa;
+        --muted: #a1a1aa;
+        --line: #3f3f46;
+        --accent: #60a5fa;
+        --accent-2: #fb923c;
         --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
       }
     }
@@ -38,10 +43,7 @@
     body {
       margin: 0;
       min-height: 100vh;
-      background:
-        linear-gradient(135deg, rgba(17, 106, 101, 0.10), transparent 34%),
-        linear-gradient(225deg, rgba(157, 63, 47, 0.11), transparent 30%),
-        var(--bg);
+      background: var(--bg);
       color: var(--ink);
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
@@ -93,7 +95,7 @@
     }
 
     .panel {
-      background: color-mix(in srgb, var(--panel) 94%, transparent);
+      background: var(--panel);
       border: 1px solid var(--line);
       border-radius: 8px;
       box-shadow: var(--shadow);
@@ -103,6 +105,7 @@
       position: sticky;
       top: 16px;
       padding: 18px;
+      border-top: 4px solid var(--accent);
     }
 
     label {
@@ -126,7 +129,7 @@
       min-width: 0;
       border: 1px solid var(--line);
       border-radius: 6px;
-      background: var(--panel);
+      background: color-mix(in srgb, var(--panel) 92%, var(--panel-2));
       color: var(--ink);
       padding: 13px 12px;
       font: 700 1.55rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -136,8 +139,8 @@
     button {
       border: 0;
       border-radius: 6px;
-      background: var(--ink);
-      color: var(--panel);
+      background: #27272a;
+      color: #ffffff;
       cursor: pointer;
       font-weight: 800;
       transition: transform 140ms ease, opacity 140ms ease;
@@ -155,11 +158,11 @@
 
     .actions button {
       padding: 10px 12px;
-      background: var(--accent);
+      background: #2563eb;
     }
 
     .actions button:last-child {
-      background: var(--accent-2);
+      background: #ea580c;
     }
 
     .copy-status {
@@ -175,7 +178,7 @@
       border: 1px solid var(--line);
       border-radius: 8px;
       padding: 12px;
-      background: color-mix(in srgb, var(--panel) 78%, var(--bg));
+      background: var(--panel-2);
     }
 
     .visit-counter span {
@@ -205,7 +208,7 @@
       border: 1px solid var(--line);
       border-radius: 8px;
       padding: 12px;
-      background: var(--panel-2);
+      background: color-mix(in srgb, var(--panel-2) 78%, var(--panel));
       min-height: 84px;
     }
 
@@ -247,6 +250,9 @@
       gap: 12px;
       padding: 14px;
       margin-bottom: 14px;
+      border-top: 4px solid var(--common);
+      background: linear-gradient(135deg, color-mix(in srgb, var(--common) 10%, var(--panel)), var(--panel));
+      transition: border-color 160ms ease, background 160ms ease;
     }
 
     .summary .stat {
@@ -254,13 +260,21 @@
       background: transparent;
     }
 
-    .summary .rarity-name.trash { color: var(--gold); }
-    .summary .rarity-name.common { color: #6b6b6b; }
-    .summary .rarity-name.uncommon { color: #15803d; }
-    .summary .rarity-name.rare { color: #1d4ed8; }
-    .summary .rarity-name.epic { color: #7e22ce; }
-    .summary .rarity-name.anomaly { color: #c2410c; }
-    .summary .rarity-name.mythic { color: #dc2626; }
+    .summary.trash { border-top-color: var(--trash); background: linear-gradient(135deg, color-mix(in srgb, var(--trash) 18%, var(--panel)), var(--panel)); }
+    .summary.common { border-top-color: var(--common); background: linear-gradient(135deg, color-mix(in srgb, var(--common) 12%, var(--panel)), var(--panel)); }
+    .summary.uncommon { border-top-color: var(--uncommon); background: linear-gradient(135deg, color-mix(in srgb, var(--uncommon) 14%, var(--panel)), var(--panel)); }
+    .summary.rare { border-top-color: var(--rare); background: linear-gradient(135deg, color-mix(in srgb, var(--rare) 14%, var(--panel)), var(--panel)); }
+    .summary.epic { border-top-color: var(--epic); background: linear-gradient(135deg, color-mix(in srgb, var(--epic) 14%, var(--panel)), var(--panel)); }
+    .summary.anomaly { border-top-color: var(--anomaly); background: linear-gradient(135deg, color-mix(in srgb, var(--anomaly) 16%, var(--panel)), var(--panel)); }
+    .summary.mythic { border-top-color: var(--mythic); background: linear-gradient(135deg, color-mix(in srgb, var(--mythic) 16%, var(--panel)), color-mix(in srgb, var(--rare) 8%, var(--panel))); }
+
+    .summary .rarity-name.trash { color: #8a5a17; }
+    .summary .rarity-name.common { color: var(--common); }
+    .summary .rarity-name.uncommon { color: var(--uncommon); }
+    .summary .rarity-name.rare { color: var(--rare); }
+    .summary .rarity-name.epic { color: var(--epic); }
+    .summary .rarity-name.anomaly { color: var(--anomaly); }
+    .summary .rarity-name.mythic { color: var(--mythic); }
 
     .section {
       padding: 16px;
@@ -294,6 +308,14 @@
       gap: 8px;
       align-content: start;
     }
+
+    .badge.trash { border-color: color-mix(in srgb, var(--trash) 55%, var(--line)); background: linear-gradient(135deg, color-mix(in srgb, var(--trash) 16%, var(--panel)), var(--panel)); }
+    .badge.common { border-color: var(--line); background: linear-gradient(135deg, color-mix(in srgb, var(--common) 8%, var(--panel)), var(--panel)); }
+    .badge.uncommon { border-color: color-mix(in srgb, var(--uncommon) 45%, var(--line)); background: linear-gradient(135deg, color-mix(in srgb, var(--uncommon) 12%, var(--panel)), var(--panel)); }
+    .badge.rare { border-color: color-mix(in srgb, var(--rare) 45%, var(--line)); background: linear-gradient(135deg, color-mix(in srgb, var(--rare) 12%, var(--panel)), var(--panel)); }
+    .badge.epic { border-color: color-mix(in srgb, var(--epic) 45%, var(--line)); background: linear-gradient(135deg, color-mix(in srgb, var(--epic) 12%, var(--panel)), var(--panel)); }
+    .badge.anomaly { border-color: color-mix(in srgb, var(--anomaly) 50%, var(--line)); background: linear-gradient(135deg, color-mix(in srgb, var(--anomaly) 14%, var(--panel)), var(--panel)); }
+    .badge.mythic { border-color: color-mix(in srgb, var(--mythic) 55%, var(--line)); background: linear-gradient(135deg, color-mix(in srgb, var(--mythic) 14%, var(--panel)), color-mix(in srgb, var(--rare) 6%, var(--panel))); }
 
     .badge-head {
       display: flex;
@@ -344,13 +366,13 @@
       text-align: center;
     }
 
-    .common { color: #6b6b6b; }
-    .uncommon { color: #15803d; }
-    .rare { color: #1d4ed8; }
-    .epic { color: #7e22ce; }
-    .anomaly { color: #c2410c; }
-    .mythic { color: #dc2626; }
-    .trash { color: var(--gold); }
+    .common { color: var(--common); }
+    .uncommon { color: var(--uncommon); }
+    .rare { color: var(--rare); }
+    .epic { color: var(--epic); }
+    .anomaly { color: var(--anomaly); }
+    .mythic { color: var(--mythic); }
+    .trash { color: #8a5a17; }
 
     footer {
       color: var(--muted);
@@ -412,7 +434,7 @@
       </aside>
 
       <section>
-        <div class="panel summary">
+        <div id="summaryCard" class="panel summary common">
           <div class="stat"><span>Total EP</span><strong id="totalEp">0</strong></div>
           <div class="stat"><span>Card Rarity</span><strong id="cardRarity" class="rarity-name">Common</strong></div>
           <div class="stat"><span>Badges</span><strong id="badgeCount">0</strong></div>
@@ -422,11 +444,6 @@
         <div class="panel section">
           <h2><span>Triggered Badges</span><span id="triggerCount" class="pill common">0 hits</span></h2>
           <div id="badges" class="badge-grid"></div>
-        </div>
-
-        <div class="panel section">
-          <h2><span>Near Misses</span><span class="pill rare">useful hints</span></h2>
-          <div id="nearMisses" class="badge-grid"></div>
         </div>
       </section>
     </div>
@@ -772,7 +789,7 @@
       const scoreLabel = `${hit.ep.toLocaleString()} EP`;
       const scoringLabel = hit.isScoring ? "scoring" : "family shadowed";
       return `
-        <article class="badge">
+        <article class="badge ${hit.rarity.cls}">
           <div class="badge-head">
             <div class="badge-title"><span class="emoji">${hit.emoji}</span><span>${hit.label}</span></div>
             <span class="pill ${hit.rarity.cls}">${hit.rarity.name}</span>
@@ -839,18 +856,6 @@
       }
     }
 
-    function nearMisses(n, hits) {
-      const hitIds = new Set(hits.map((hit) => hit.id));
-      const suggestions = [];
-      const s = String(n);
-      if (!hitIds.has("PALINDROME") && s.length > 1) suggestions.push({ label: "Palindrome", emoji: "🪞", description: `Try ${s + [...s].reverse().join("")}, or change the last digit to match the first.` });
-      if (!hitIds.has("PRIME")) suggestions.push({ label: "Prime", emoji: "🔹", description: "Nearby values often include primes; avoid even numbers and numbers ending in 5."});
-      if (!hitIds.has("JACKPOT")) suggestions.push({ label: "Blackjack", emoji: "🃏", description: `Current digit sum is ${sumDigits(n)}; the target is 21.`});
-      if (!hitIds.has("LEET")) suggestions.push({ label: "Leet", emoji: "💻", description: "Numbers containing 1337 can stack meme and pattern badges."});
-      if (!hitIds.has("CONTIGUOUS_TRIPS")) suggestions.push({ label: "Trips Run", emoji: "🔁", description: "Three identical consecutive digits trigger contiguous trips."});
-      return suggestions.slice(0, 4);
-    }
-
     function render(result) {
       currentResult = result;
       $("digitSum").textContent = result.digitSum;
@@ -858,6 +863,7 @@
       $("digitLength").textContent = result.digits.length;
       $("uniqueDigits").textContent = result.uniqueDigits;
       $("totalEp").textContent = result.totalEp.toLocaleString();
+      $("summaryCard").className = `panel summary ${result.card.cls}`;
       $("cardRarity").textContent = result.card.name;
       $("cardRarity").className = `rarity-name ${result.card.cls}`;
       $("badgeCount").textContent = result.hits.length;
@@ -868,12 +874,6 @@
       $("badges").innerHTML = result.hits.length
         ? result.hits.map(renderBadge).join("")
         : `<div class="empty">No badges matched in the current rule set.</div>`;
-      $("nearMisses").innerHTML = nearMisses(result.n, result.hits).map((item) => `
-        <article class="badge">
-          <div class="badge-title"><span class="emoji">${item.emoji}</span><span>${item.label}</span></div>
-          <div class="desc">${item.description}</div>
-        </article>
-      `).join("");
     }
 
     function parseRoll() {
