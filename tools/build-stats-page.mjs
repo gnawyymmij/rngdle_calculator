@@ -4,7 +4,7 @@ const stats = JSON.parse(fs.readFileSync(new URL("../enumeration_stats.json", im
 const embedded = JSON.stringify(stats).replaceAll("</", "<\\/");
 
 const html = `<!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -340,6 +340,7 @@ const html = `<!doctype html>
       <nav class="nav">
         <a href="index.html">Calculator</a>
         <a href="official_formula.md">Formula</a>
+        <a href="https://github.com/gnawyymmij/rngdle_calculator" target="_blank" rel="noreferrer">GitHub Repository</a>
         <div class="visit-counter">
           <span>Total Visits</span>
           <strong id="visitCount" class="visit-count">Loading...</strong>
