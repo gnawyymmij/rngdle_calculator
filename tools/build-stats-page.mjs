@@ -302,10 +302,10 @@ const html = `<!doctype html>
       text-transform: uppercase;
     }
 
-    .visit-counter img {
+    .visit-count {
       display: block;
-      max-width: 100%;
-      height: auto;
+      color: var(--ink);
+      font: 800 1.25rem/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
     }
 
     .trash { color: var(--trash); }
@@ -342,7 +342,7 @@ const html = `<!doctype html>
         <a href="official_formula.md">Formula</a>
         <div class="visit-counter">
           <span>Total Visits</span>
-          <img src="https://profile-counter.glitch.me/rngdle-calculator/count.svg" alt="Total visits counter" loading="lazy" referrerpolicy="no-referrer">
+          <strong id="visitCount" class="visit-count">Loading...</strong>
         </div>
       </nav>
     </header>
@@ -497,6 +497,22 @@ const html = `<!doctype html>
     renderTable("rareBadges", stats.rarestBadges);
     renderTable("commonScoringBadges", stats.mostCommonScoringBadges);
     renderTable("rareScoringBadges", stats.rarestScoringBadges);
+
+    async function updateVisitCounter() {
+      const el = $("visitCount");
+      if (!el) return;
+      try {
+        const response = await fetch("https://countapi.mileshilliard.com/api/v1/hit/rngdle_calculator_total_visits", { cache: "no-store" });
+        if (!response.ok) throw new Error(\`Counter request failed: \${response.status}\`);
+        const data = await response.json();
+        const value = Number(data.value);
+        el.textContent = Number.isFinite(value) ? value.toLocaleString() : String(data.value ?? "Unavailable");
+      } catch (error) {
+        el.textContent = "Unavailable";
+      }
+    }
+
+    updateVisitCounter();
   </script>
 </body>
 </html>
