@@ -284,6 +284,30 @@ const html = `<!doctype html>
       text-transform: uppercase;
     }
 
+    .visit-counter {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 8px;
+      padding: 10px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: color-mix(in srgb, var(--panel) 88%, transparent);
+    }
+
+    .visit-counter span {
+      color: var(--muted);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .visit-counter img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
     .trash { color: var(--trash); }
     .common { color: var(--common); }
     .uncommon { color: var(--uncommon); }
@@ -316,6 +340,10 @@ const html = `<!doctype html>
       <nav class="nav">
         <a href="index.html">Calculator</a>
         <a href="official_formula.md">Formula</a>
+        <div class="visit-counter">
+          <span>Total Visits</span>
+          <img src="https://profile-counter.glitch.me/rngdle-calculator/count.svg" alt="Total visits counter" loading="lazy" referrerpolicy="no-referrer">
+        </div>
       </nav>
     </header>
 

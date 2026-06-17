@@ -170,6 +170,30 @@
       line-height: 1.4;
     }
 
+    .visit-counter {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: color-mix(in srgb, var(--panel) 78%, var(--bg));
+    }
+
+    .visit-counter span {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .visit-counter img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
     .stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -380,6 +404,10 @@
           <div class="stat"><span>Unique Digits</span><strong id="uniqueDigits">0</strong></div>
         </div>
         <div id="digits" class="digits" aria-label="Digits"></div>
+        <div class="visit-counter">
+          <span>Total Visits</span>
+          <img src="https://profile-counter.glitch.me/rngdle-calculator/count.svg" alt="Total visits counter" loading="lazy" referrerpolicy="no-referrer">
+        </div>
         <footer>Calculation logic comes from the pinned official RNGdle frontend chunk. Badges marked “scoring” count toward total EP; within the same family, only the highest-EP badge scores.</footer>
       </aside>
 
