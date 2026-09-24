@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import vm from "node:vm";
 
-const MAX = 999_999;
+const MAX = 1_000_000;
 const bundle = fs.readFileSync(new URL("../vendor/rngdle-main.js", import.meta.url), "utf8");
 
 let pushed;
@@ -54,8 +54,8 @@ function load(id) {
   return exp;
 }
 
-const api = load(5641);
-const definitions = load(67711).BADGE_DEFINITIONS;
+const api = load(405641);
+const definitions = load(167711).BADGE_DEFINITIONS;
 const badgeLabels = new Map(definitions.map((badge) => [badge.id, badge.label]));
 const total = MAX + 1;
 const rarityOrder = ["trash", "common", "uncommon", "rare", "epic", "anomaly", "mythic"];

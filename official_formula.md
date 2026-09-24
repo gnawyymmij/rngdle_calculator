@@ -5,9 +5,9 @@ Extracted from `vendor/rngdle-main.js`, copied from the current official RNGdle 
 ## Modules
 
 - `47558`: numeric helper functions such as prime, palindrome, Fibonacci, square, digit runs, sequences.
-- `67711`: `BADGE_DEFINITIONS`, 203 badge rules. Each rule has `id`, `label`, `description`, `emoji`, optional `family`, `check(number, string)`, and tests.
-- `10584`: `SCORED_BADGES` and `SCORE_PERCENTILES`.
-- `5641`: public API used by the app: `analyzeNumber`, `composeRollResult`, rarity helpers, percentile lookup.
+- `167711`: `BADGE_DEFINITIONS`, 233 badge rules. Each rule has `id`, `label`, `description`, `emoji`, optional `family`, `check(number, string)`, and tests.
+- `510584`: `SCORED_BADGES` and `SCORE_PERCENTILES`.
+- `405641`: public API used by the app: `analyzeNumber`, `composeRollResult`, rarity helpers, percentile lookup.
 
 ## Badge EP
 

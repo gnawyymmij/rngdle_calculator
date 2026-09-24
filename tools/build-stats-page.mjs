@@ -335,7 +335,7 @@ const html = `<!doctype html>
     <header>
       <div>
         <h1>RNGdle Stats</h1>
-        <p class="subtitle">Full enumeration of every valid roll from 0 to 999,999 using the official rules. All charts are generated from the local <code>enumeration_stats.json</code>; no network access is required.</p>
+        <p class="subtitle">Full enumeration of every valid roll from 0 to 1,000,000 using the official rules. All charts are generated from the local <code>enumeration_stats.json</code>; no network access is required.</p>
       </div>
       <nav class="nav">
         <a href="index.html">Calculator</a>

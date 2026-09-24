@@ -55,9 +55,9 @@ function load(id) {
   return exp;
 }
 
-const defs = load(67711).BADGE_DEFINITIONS;
-const scoring = load(10584).SCORED_BADGES;
-const api = load(5641);
+const defs = load(167711).BADGE_DEFINITIONS;
+const scoring = load(510584).SCORED_BADGES;
+const api = load(405641);
 const scoreById = new Map(scoring.map((badge) => [badge.id, badge]));
 
 const exported = defs.map((def) => {
@@ -80,11 +80,11 @@ const exported = defs.map((def) => {
 });
 
 const out = {
-  source: "https://www.rngdle.com/_next/static/chunks/6d375db2482ce7e8.js",
+  source: "https://www.rngdle.com/_next/static/chunks/d38724ddf7b90968.js",
   extractedAt: new Date().toISOString(),
   badgeCount: defs.length,
   scoredBadgeCount: scoring.length,
-  scorePercentileCount: Object.keys(load(10584).SCORE_PERCENTILES).length,
+  scorePercentileCount: Object.keys(load(510584).SCORE_PERCENTILES).length,
   badgeRarityThresholds: api.BADGE_RARITY_THRESHOLDS,
   cardPercentileThresholds: api.CARD_PERCENTILE_THRESHOLDS,
   calculation: {

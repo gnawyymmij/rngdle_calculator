@@ -5,12 +5,13 @@ A custom calculator for RNGdle, with a static calculator and stats viewer built 
 ## Pages
 
 - Live site: https://gnawyymmij.github.io/rngdle_calculator/
-- `index.html`: calculator for a roll in the valid range `0..999999`
+- `index.html`: calculator for a roll in the valid range `0..1000000`
 - `stats.html`: visualization of full enumeration statistics
 
 ## Local Regeneration
 
 ```bash
+node tools/extract-official.mjs
 node tools/enumerate-stats.mjs
 node tools/build-stats-page.mjs
 ```
